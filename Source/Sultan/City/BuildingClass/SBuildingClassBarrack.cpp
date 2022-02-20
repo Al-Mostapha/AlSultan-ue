@@ -12,6 +12,7 @@ ASBuildingClassBarrack::ASBuildingClassBarrack() {
 	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE,CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
 	BtnCompTrain   = BtnListComp.Add(EBuildingBtnAction::BBA_TRAIN,  CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompTrain")));
 	TrainInfantry  = CreateDefaultSubobject<UPaperFlipbookComponent>(TEXT("TrainInfantry"));
+	IL_CoolingTitle = "";
 	setBarrackInfantry();
 
 }

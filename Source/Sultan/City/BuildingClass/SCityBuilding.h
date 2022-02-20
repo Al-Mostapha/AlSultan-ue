@@ -108,6 +108,8 @@ public:
 	TMap<EBuildingBtnAction, USBuildingActionBtnsComp*> BtnListComp;
 	UWidgetComponent* BtnActionPanelBg;
 
+	FString CoolingIcon;
+	FString IL_CoolingTitle;
 
 	ASCityBuilding();
 	void setSprite(class UPaperSprite* Sprite);
