@@ -12,6 +12,7 @@ USBuildingNameComp::USBuildingNameComp()
 	Bg   = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("PaperSprite"));
 	Name = CreateDefaultSubobject<UTextRenderComponent>(TEXT("NameText"));
 	// ...
+	SetTranslucentSortPriority(2);
 	Bg->SetupAttachment(this);
 	Bg->SetRelativeLocation(FVector(0 , 10, -96));
 	Bg->SetTranslucentSortPriority(2);
@@ -23,7 +24,8 @@ USBuildingNameComp::USBuildingNameComp()
 	Name->SetRelativeRotation(FRotator(0, 90, 0));
 
 	Name->SetText(FText::FromString(TEXT("Test")));
-	Name->SetTextRenderColor(FColor::White);
+	//220, 215, 180
+	Name->SetTextRenderColor(FColor(220, 215, 180));
 	Name->SetWorldSize(18.0);
 
 	Name->SetHorizontalAlignment(EHorizTextAligment::EHTA_Center);

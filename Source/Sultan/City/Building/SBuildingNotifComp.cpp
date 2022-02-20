@@ -20,6 +20,7 @@ USBuildingNotifComp::USBuildingNotifComp()
 	Icon->SetupAttachment(Bg);
 	Icon->SetRelativeLocation(FVector(4, 10, 8));
 	Icon->SetTranslucentSortPriority(3);
+	SetTranslucentSortPriority(3);
 
 }
 

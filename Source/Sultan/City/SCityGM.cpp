@@ -8,12 +8,13 @@
 #include "Camera/CameraComponent.h"
 #include <Runtime/Engine/Classes/Kismet/GameplayStatics.h>
 #include "SCityFloor.h"
-#include "SCityPlayerCont.h"
+#include "SCityPC.h"
 #include "../SGameMain.h"
 #include "PaperSpriteComponent.h"
 #include "PaperSprite.h"
-#include "SCityBuilding.h"
-
+#include "BuildingClass/SCityBuilding.h"
+#include "BuildingClass/SBuildingClassStable.h"
+#include "BuildingWid/SBuildingActionBtnsWid.h"
 #include "../World/SWorldFloor.h"
 
 class UCameraComponent;
@@ -24,7 +25,7 @@ void ASCityGM::initCamera() {
 
 
 ASCityGM::ASCityGM() {
-	PlayerControllerClass = ASCityPlayerCont::StaticClass();
+	PlayerControllerClass = ASCityPC::StaticClass();
 	
 }
 
@@ -32,10 +33,10 @@ void ASCityGM::StartPlay() {
 
 	Super::StartPlay();
 
-
+	FBuildingActionBtn::initActionBtn();
 	buildCompleteBuilding();
-
 	return;
+
 
 
 	buildCityFloor();
@@ -44,6 +45,7 @@ void ASCityGM::StartPlay() {
 	buildCityFixedDecore();
 	buildCityResBuilding();
 	buildCityOuterBuilding();
+	
 
 
 }
@@ -223,8 +225,8 @@ void ASCityGM::buildCompleteBuilding() {
 	for (FCityBuildingData* OneCityBuildingPos : CityBuildingPosArr) {
 
 		ASCityBuilding* Test = GetWorld()->SpawnActor<ASCityBuilding>(OneCityBuildingPos->BuildingClass, FVector::ZeroVector, FRotator::ZeroRotator);
-		Test->setSprite(OneCityBuildingPos->FloorSprite);
-		Test->WidgitComp->SetWidgetClass(OneCityBuildingPos->BuildingProg);
+		//Test->setSprite(OneCityBuildingPos->FloorSprite);
+		//Test->WidgitComp->SetWidgetClass(OneCityBuildingPos->BuildingProg);
 		//Test->WidgitComp
 	}
 }

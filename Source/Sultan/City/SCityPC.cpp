@@ -1,12 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "SCityPlayerCont.h"
-#include "Engine/World.h"
-#include <Runtime/Engine/Classes/Kismet/GameplayStatics.h>
+#include "SCityPC.h"
 #include "../SGameMain.h"
 
-ASCityPlayerCont::ASCityPlayerCont() {
+ASCityPC::ASCityPC() {
 	bEnableClickEvents = true;
 	bEnableMouseOverEvents = true;
 	bShowMouseCursor = true;
@@ -15,7 +13,7 @@ ASCityPlayerCont::ASCityPlayerCont() {
 
 
 
-void ASCityPlayerCont::BeginPlay() {
+void ASCityPC::BeginPlay() {
 
 	Super::BeginPlay();
 	FVector cameraPos(0, 50, 0);
@@ -30,21 +28,19 @@ void ASCityPlayerCont::BeginPlay() {
 	SetViewTarget(MainCamera);
 	SetInputMode(FInputModeGameAndUI());
 
-	
-	
-
 }
 
 
-void ASCityPlayerCont::SetupInputComponent() {
+void ASCityPC::SetupInputComponent() {
 
 	Super::SetupInputComponent();
-	InputComponent->BindAxis("LeftArrow",  this, &ASCityPlayerCont::moveCameraLeft);
-	InputComponent->BindAxis("RightArrow", this, &ASCityPlayerCont::moveCameraRight);
-	InputComponent->BindAxis("DownArrow",  this, &ASCityPlayerCont::moveCameraDown);
-	InputComponent->BindAxis("UpArrow",    this, &ASCityPlayerCont::moveCameraUp);
-	InputComponent->BindAxis("Scroll",     this, &ASCityPlayerCont::zoomCamera);
+	InputComponent->BindAxis("LeftArrow", this, &ASCityPC::moveCameraLeft);
+	InputComponent->BindAxis("RightArrow", this, &ASCityPC::moveCameraRight);
+	InputComponent->BindAxis("DownArrow", this, &ASCityPC::moveCameraDown);
+	InputComponent->BindAxis("UpArrow", this, &ASCityPC::moveCameraUp);
+	InputComponent->BindAxis("Scroll", this, &ASCityPC::zoomCamera);
 
 
 }
+
 

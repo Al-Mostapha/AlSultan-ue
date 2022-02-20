@@ -1,9 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "SBase.h"
+#include "SWid_BuildingProgBar.h"
 
-FString USBase::Trans(FString& IdLang) {
-	
-	return IdLang;
-}

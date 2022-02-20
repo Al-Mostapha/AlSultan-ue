@@ -13,5 +13,7 @@ UCLASS()
 class SULTAN_API USBase : public UObject
 {
 	GENERATED_BODY()
-	
+public:
+	UFUNCTION(BlueprintCallable, Category = "")
+	static FString Trans(UPARAM(ref) FString& IdLang);
 };

@@ -13,6 +13,7 @@ USBuildingLvlComp::USBuildingLvlComp()
 	Bg = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("PaperSprite"));
 	Lvl = CreateDefaultSubobject<UTextRenderComponent>(TEXT("NameText"));
 	// ...
+	SetTranslucentSortPriority(1);
 	Bg->SetupAttachment(this);
 	Bg->SetRelativeLocation(FVector(96, 10, -64 - 8));
 	Bg->SetTranslucentSortPriority(2);

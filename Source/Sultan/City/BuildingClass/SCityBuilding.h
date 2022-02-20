@@ -5,12 +5,18 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/DataTable.h"
-#include "Building/SBuildingNameComp.h"
-#include "Building/SBuildingLvlComp.h"
-#include "Building/SBuildingNotifComp.h"
-#include "Building/SBuildingProgComp.h"
-#include "Building/SBuildingBtnComp.h"
+#include "../../Base/SBase.h"
+#include "../Building/SBuildingNameComp.h"
+#include "../Building/SBuildingTitleComp.h"
+#include "../Building/SBuildingLvlComp.h"
+#include "../Building/SBuildingNotifComp.h"
+#include "../Building/SBuildingProgComp.h"
+#include "../Building/SBuildingBtnComp.h"
+#include "../Building/SBuildingActionBtnsComp.h"
+#include "../BuildingWid/SBuildingActionBtnsWid.h"
 #include "Components/WidgetComponent.h"
+#include "PaperFlipbookComponent.h"
+#include "PaperFlipbook.h"
 
 #include "SCityBuilding.generated.h"
 
@@ -28,6 +34,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FRotator Rot;
 };
+
+
 
 
 USTRUCT(BlueprintType)
@@ -71,9 +79,7 @@ public :
 		TSubclassOf<class UUserWidget> BuildingProg;
 
 };
-/**
- * 
- */
+
 UCLASS()
 class SULTAN_API ASCityBuilding : public APawn
 {
@@ -86,6 +92,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingNameComp* BuildingName;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USBuildingTitleComp* BuildingTitle;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingLvlComp* BuildingLvl;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingNotifComp* BuildingNotif;
@@ -93,17 +101,24 @@ public:
 	USBuildingProgComp* BuildingProgress;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingBtnComp* WidgitComp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USBuildingActionBtnsComp* ActionBtnWid;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FBuildingActionBtn> BtnActionList;
+	TMap<EBuildingBtnAction, USBuildingActionBtnsComp*> BtnListComp;
+	UWidgetComponent* BtnActionPanelBg;
+
 
 	ASCityBuilding();
 	void setSprite(class UPaperSprite* Sprite);
 	static UDataTable* CityBuildingPos;
-	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
-	void DragX(float Val);
-	void DragY(float Val);
 	UFUNCTION()
-	void Click();
-	UFUNCTION()
-	void OnSelected(UPrimitiveComponent* Target, FKey ButtonPressed);
+		void OnSelected(UPrimitiveComponent* Target, FKey ButtonPressed);
+
+
+	void addActionBtnComp();
+
+	virtual void setBuildingActionBtnList();
 
 
 };
