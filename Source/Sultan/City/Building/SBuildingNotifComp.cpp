@@ -29,8 +29,8 @@ USBuildingNotifComp::USBuildingNotifComp()
 void USBuildingNotifComp::BeginPlay()
 {
 	Super::BeginPlay();
-	Bg->SetSprite(LoadObject<UPaperSprite>(nullptr, TEXT("PaperSprite'/Game/Icon/Building/icon_main_build_ring_02.icon_main_build_ring_02'")));
-	Icon->SetSprite(LoadObject<UPaperSprite>(nullptr, TEXT("PaperSprite'/Game/Icon/Building/icon_building_training_finish.icon_building_training_finish'")));
+	Bg->SetSprite(LoadObject<UPaperSprite>(nullptr, TEXT("PaperSprite'/Game/WidgetUi/Frames/icon_main_build_ring_02.icon_main_build_ring_02'")));
+	Icon->SetSprite(LoadObject<UPaperSprite>(nullptr, TEXT("PaperSprite'/Game/WidgetUi/Frames/icon_building_training_finish.icon_building_training_finish'")));
 	// ...
 
 }

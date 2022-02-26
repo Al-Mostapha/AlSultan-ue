@@ -24,7 +24,7 @@ ASCityBuilding::ASCityBuilding() {
 	ActionBtnWid = CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BuildingActionWid"));
 	ActionBtnWid->SetupAttachment(RootComponent);
 	BtnActionPanelBg = CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnActionPanelBg"));
-	BtnActionPanelBg->SetRelativeLocation(FVector(0, 9, -166));
+	BtnActionPanelBg->SetRelativeLocation(FVector(0, -1000, -166));
 	BtnActionPanelBg->SetRelativeRotation(FRotator(0, 90, 0));
 	BtnActionPanelBg->SetupAttachment(RootComponent);
 }

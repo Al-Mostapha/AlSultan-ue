@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "SWorldUnitSprite.h"
+#include "UnitClass/SWorldUnitSprite.h"
 #include "Engine/DataTable.h"
 #include "SWorldUnitSpriteMonster.generated.h"
 

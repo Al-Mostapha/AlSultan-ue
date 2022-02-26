@@ -13,6 +13,7 @@
 #include "PaperSpriteComponent.h"
 #include "PaperSprite.h"
 #include "BuildingClass/SCityBuilding.h"
+#include "BuildingClass/SBuildingClassCastle.h"
 #include "BuildingClass/SBuildingClassStable.h"
 #include "BuildingWid/SBuildingActionBtnsWid.h"
 #include "../World/SWorldFloor.h"
@@ -34,12 +35,14 @@ void ASCityGM::StartPlay() {
 	Super::StartPlay();
 
 	FBuildingActionBtn::initActionBtn();
+	ASBuildingClassCastle::initCastleSkin();
 	buildCompleteBuilding();
+	buildCityFloor();
 	return;
 
 
 
-	buildCityFloor();
+	
 	buildCityBuilding();
 	buildCityFixedBuilding();
 	buildCityFixedDecore();
@@ -54,10 +57,7 @@ void ASCityGM::StartPlay() {
 
 void ASCityGM::buildCityFloor() {
 
-
 	ASCityFloor::CityFloorParts = LoadObject<class UDataTable>(nullptr, TEXT("DataTable'/Game/City/CityFloorPartsLvl1DT.CityFloorPartsLvl1DT'"));
-
-
 
 	if (!ASCityFloor::CityFloorParts) {
 
@@ -210,6 +210,35 @@ void ASCityGM::buildCityOuterBuilding() {
 
 
 void ASCityGM::buildCompleteBuilding() {
+
+
+
+	ASBuildingClassCastle* iii1 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(2153.0, 10, -256), FRotator::ZeroRotator);
+	/*ASBuildingClassCastle* iii2 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(), FVector(750, 0, 0), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii3 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(1500, 0, 0), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii4 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(2250, 0, 0), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii5 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(0, 0, 750), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii6 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(0, 0, 1500), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii7 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(0, 0, 2250), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii8 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(-750, 0, 0), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii9 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(0, 0, -750), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii10 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(), FVector(-1500, 0, 0), FRotator::ZeroRotator);
+	
+	iii1->setSkin(ECityCastleSkin::CLASSICAL);
+	iii2->setSkin(ECityCastleSkin::RAMADAN);
+	iii3->setSkin(ECityCastleSkin::WARLV);
+	iii4->setSkin(ECityCastleSkin::SUPERVIP);
+	iii5->setSkin(ECityCastleSkin::SECOND);
+	iii6->setSkin(ECityCastleSkin::THREE);
+	iii7->setSkin(ECityCastleSkin::NEWRAMADAN);
+	iii8->setSkin(ECityCastleSkin::KOH2018RAMADAN);
+	iii9->setSkin(ECityCastleSkin::EGYPT);
+	iii10->setSkin(ECityCastleSkin::PANTHER);*/
+
+	iii1->setSkin(ECityCastleSkin::CLASSICAL);
+
+	return;
+
 
 	UDataTable* TestTable = LoadObject<class UDataTable>(nullptr, TEXT("DataTable'/Game/City/CityOld/NewDataTable.NewDataTable'"));
 
