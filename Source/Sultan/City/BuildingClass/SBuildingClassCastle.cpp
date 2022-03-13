@@ -23,7 +23,7 @@ void ASBuildingClassCastle::setBuildingActionBtnList() {
 void ASBuildingClassCastle::initCastleSkin() {
 
 
-	UDataTable* DT_CastleSkin = LoadObject < UDataTable >(nullptr, TEXT("DataTable'/Game/City/CastleSkin.CastleSkin'"));
+	UDataTable* DT_CastleSkin = LoadObject < UDataTable >(nullptr, TEXT("DataTable'/Game/City/CastleSkinOld.CastleSkinOld'"));
 	static const FString ContextString(TEXT("Castle Skin"));
 	//FBuildingCastleSkin* CastleSkin = DT_CastleSkin->GetAllRows<FBuildingCastleSkin>(ContextString, )
 
@@ -56,9 +56,15 @@ void ASBuildingClassCastle::setSkin(ECityCastleSkin CSkin) {
 		firstIndex++;
 
 		if (firstIndex == 0) {
-			//	setSprite();
 			Sprite->SetSprite(SkinPart.Sprite);
-			GLog->Log("------------------------------ SKin Added ----------------- " + SkinPart.Sprite->GetPathName());
+			Sprite->SetRelativeLocation(SkinPart.Pos);
+			continue;
+		}
+		else if(firstIndex == 1) {
+			
+			Comp->SetRelativeLocation(SkinPart.Pos + FVector(35, 0, 77.5));
+			Comp->SetSprite(SkinPart.Sprite);
+
 			continue;
 		}
 
@@ -69,7 +75,7 @@ void ASBuildingClassCastle::setSkin(ECityCastleSkin CSkin) {
 		newPaperSprite->RegisterComponent();
 		newPaperSprite->SetupAttachment(Sprite);
 		newPaperSprite->AttachToComponent(RootComponent, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
-		newPaperSprite->SetRelativeLocation(SkinPart.Pos);
+		newPaperSprite->SetRelativeLocation(SkinPart.Pos + FVector(35, 0, 77.5));
 		newPaperSprite->SetSprite(SkinPart.Sprite);
 
 		
@@ -102,8 +108,6 @@ void ASBuildingClassCastle::Clicked(AActor* Target, FKey ButtonPressed) {
 		ECityCastleSkin::KOH2018RAMADAN, ECityCastleSkin::EGYPT,
 		ECityCastleSkin::PANTHER, ECityCastleSkin::EGYPT,
 	};
-	ECityCastleSkin NewTile = T[Index++%9];
-	this->setSkin(NewTile);
-	GLog->Log("---------------------------------------------" + FString::FromInt(Index++));
+	
 
 }

@@ -17,6 +17,7 @@
 #include "BuildingClass/SBuildingClassStable.h"
 #include "BuildingWid/SBuildingActionBtnsWid.h"
 #include "../World/SWorldFloor.h"
+#include "../Network/SNetBase.h"
 
 class UCameraComponent;
 void ASCityGM::initCamera() {
@@ -36,14 +37,42 @@ void ASCityGM::StartPlay() {
 
 	FBuildingActionBtn::initActionBtn();
 	ASBuildingClassCastle::initCastleSkin();
+	USCBuilding::initBuildingPos();
+
 	buildCompleteBuilding();
 	buildCityFloor();
+	
+	USNetBase* Req = NewObject<USNetBase>();
+	Req->ReqBody = {
+		{"Test1", "Test"},
+		{"Test2", "Test"},
+		{"Test3", "Test"},
+		{"Test4", "Test"},
+		{"Test5", "Test"},
+		{"Test6", "Test"},
+	};
+	Req->OnComplete = [Req]() {
+		GLog->Log("----------------------------");
+		/**TSharedPtr<FJsonObject> JsonValue;
+		TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(Req->Response->GetContentAsString());
+		if(!FJsonSerializer::Deserialize(Reader, JsonValue)){
+			GLog->Log(JsonValue->GetStringField("State"));
+		}*/
+
+		FJsonObjectConverter::JsonObjectToUStruct(Req->ResJson.ToSharedRef(), &USGameMain::PlayerCity);
+
+		PRINT_STRUCT(USGameMain::PlayerCity);
+	};
+	Req->GetReq("/api/CCity/getCity");
+
+	buildCityBuilding();
+
 	return;
 
 
 
 	
-	buildCityBuilding();
+	
 	buildCityFixedBuilding();
 	buildCityFixedDecore();
 	buildCityResBuilding();
@@ -84,8 +113,6 @@ void ASCityGM::buildCityFloor() {
 void ASCityGM::buildCityBuilding() {
 
 	ASCityBuilding::CityBuildingPos = LoadObject<class UDataTable>(nullptr, TEXT("DataTable'/Game/City/CityOld/DTCityBuildingPos.DTCityBuildingPos'"));
-
-
 
 	if (!ASCityBuilding::CityBuildingPos) {
 
@@ -213,7 +240,7 @@ void ASCityGM::buildCompleteBuilding() {
 
 
 
-	ASBuildingClassCastle* iii1 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(2153.0, 10, -256), FRotator::ZeroRotator);
+	ASBuildingClassCastle* iii1 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(2283.0, 10, -168.0), FRotator::ZeroRotator);
 	/*ASBuildingClassCastle* iii2 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(), FVector(750, 0, 0), FRotator::ZeroRotator);
 	ASBuildingClassCastle* iii3 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(1500, 0, 0), FRotator::ZeroRotator);
 	ASBuildingClassCastle* iii4 = GetWorld()->SpawnActor<ASBuildingClassCastle>(ASBuildingClassCastle::StaticClass(),  FVector(2250, 0, 0), FRotator::ZeroRotator);

@@ -1,0 +1,493 @@
+[
+	{
+		"Name": "1",
+		"BuildingPlace": "castle",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 2163, "Y": 0, "Z": -284 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "2",
+		"BuildingPlace": "wall",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 3853, "Y": 0, "Z": -849 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "3",
+		"BuildingPlace": "arrowTower",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 3714, "Y": 1, "Z": -860 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "4",
+		"BuildingPlace": "wall",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 3524, "Y": 2, "Z": -1010 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "5",
+		"BuildingPlace": "wallGate",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 3389, "Y": 3, "Z": -1034 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "6",
+		"BuildingPlace": "wall",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 3105, "Y": 4, "Z": -1215 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "7",
+		"BuildingPlace": "watchTower",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 2940, "Y": 5, "Z": -1244 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "8",
+		"BuildingPlace": "wall",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 2751, "Y": 6, "Z": -1391 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "9",
+		"BuildingPlace": "bigSale",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 3392, "Y": 0, "Z": -846 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "10",
+		"BuildingPlace": "leisureHouse",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 3246, "Y": -1, "Z": -198 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "11",
+		"BuildingPlace": "statue",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 2783, "Y": 1, "Z": -675 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "12",
+		"BuildingPlace": "petCenter",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 534, "Y": 0, "Z": -1449 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "13",
+		"BuildingPlace": "eventCenter",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 1689, "Y": 0, "Z": -410 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "14",
+		"BuildingPlace": "veteransHall",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "FIXED",
+		"Vect":{ "X": 1322, "Y": 0, "Z": -671 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "15",
+		"BuildingPlace": "innerBuilding_1",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 1715, "Y": 0, "Z": -712 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "16",
+		"BuildingPlace": "innerBuilding_2",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2008, "Y": 0, "Z": -656 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "17",
+		"BuildingPlace": "innerBuilding_3",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2306, "Y": 0, "Z": -621 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "18",
+		"BuildingPlace": "innerBuilding_4",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2080, "Y": 0, "Z": -964 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "19",
+		"BuildingPlace": "innerBuilding_5",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2480, "Y": 0, "Z": -910 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "20",
+		"BuildingPlace": "innerBuilding_6",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2546, "Y": 0, "Z": -1211 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "21",
+		"BuildingPlace": "innerBuilding_7",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2828, "Y": 0, "Z": -1127 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "22",
+		"BuildingPlace": "innerBuilding_8",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2612, "Y": 0, "Z": -254 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "23",
+		"BuildingPlace": "innerBuilding_9",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2730, "Y": 0, "Z": -413 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "24",
+		"BuildingPlace": "innerBuilding_10",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2895, "Y": 0, "Z": -227 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "25",
+		"BuildingPlace": "innerBuilding_11",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3108, "Y": 0, "Z": -630 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "26",
+		"BuildingPlace": "innerBuilding_12",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3254, "Y": 0, "Z": -450 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "27",
+		"BuildingPlace": "innerBuilding_13",
+		"BuildingCityPlace": "INNER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3553, "Y": 0, "Z": -727 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "28",
+		"BuildingPlace": "resBuilding_1",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4505, "Y": 0, "Z": -580 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "29",
+		"BuildingPlace": "resBuilding_2",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4711, "Y": 0, "Z": -590 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "30",
+		"BuildingPlace": "resBuilding_3",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4893, "Y": 0, "Z": -622 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "31",
+		"BuildingPlace": "resBuilding_4",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4598, "Y": 0, "Z": -658 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "32",
+		"BuildingPlace": "resBuilding_5",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4769, "Y": 0, "Z": -693 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "33",
+		"BuildingPlace": "resBuilding_6",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4960, "Y": 0, "Z": -722 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "34",
+		"BuildingPlace": "resBuilding_7",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4542, "Y": 0, "Z": -749 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "35",
+		"BuildingPlace": "resBuilding_8",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4705, "Y": 0, "Z": -784 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "36",
+		"BuildingPlace": "resBuilding_9",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4466, "Y": 0, "Z": -955 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "37",
+		"BuildingPlace": "resBuilding_10",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4674, "Y": 0, "Z": -968 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "38",
+		"BuildingPlace": "resBuilding_11",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4877, "Y": 0, "Z": -944 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "39",
+		"BuildingPlace": "resBuilding_12",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 5070, "Y": 0, "Z": -910 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "40",
+		"BuildingPlace": "resBuilding_13",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4379, "Y": 0, "Z": -1064 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "41",
+		"BuildingPlace": "resBuilding_14",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4562, "Y": 0, "Z": -1036 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "42",
+		"BuildingPlace": "resBuilding_15",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4799, "Y": 0, "Z": -1036 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "43",
+		"BuildingPlace": "resBuilding_16",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 5005, "Y": 0, "Z": -1007 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "44",
+		"BuildingPlace": "resBuilding_17",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4254, "Y": 0, "Z": -1146 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "45",
+		"BuildingPlace": "resBuilding_18",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4504, "Y": 0, "Z": -1137 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "46",
+		"BuildingPlace": "resBuilding_19",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4677, "Y": 0, "Z": -1104 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "47",
+		"BuildingPlace": "resBuilding_20",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4927, "Y": 0, "Z": -1096 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "48",
+		"BuildingPlace": "resBuilding_21",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 5148, "Y": 0, "Z": -1069 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "49",
+		"BuildingPlace": "resBuilding_22",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4388, "Y": 0, "Z": -1216 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "50",
+		"BuildingPlace": "resBuilding_23",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4640, "Y": 0, "Z": -1209 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "51",
+		"BuildingPlace": "resBuilding_24",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4809, "Y": 0, "Z": -1167 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "52",
+		"BuildingPlace": "resBuilding_25",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 5062, "Y": 0, "Z": -1163 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "53",
+		"BuildingPlace": "resBuilding_26",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4938, "Y": 0, "Z": -1235 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "54",
+		"BuildingPlace": "resBuilding_27",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4530, "Y": 0, "Z": -1280 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "55",
+		"BuildingPlace": "resBuilding_28",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4788, "Y": 0, "Z": -1286 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "56",
+		"BuildingPlace": "resBuilding_29",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4664, "Y": 0, "Z": -1355 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "57",
+		"BuildingPlace": "resBuilding_30",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "RESOURCE",
+		"Vect":{ "X": 4899, "Y": 0, "Z": -1368 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "58",
+		"BuildingPlace": "outerBuilding_1",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 4174, "Y": 0, "Z": -1296 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "59",
+		"BuildingPlace": "outerBuilding_2",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 4380, "Y": 0, "Z": -1520 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "60",
+		"BuildingPlace": "outerBuilding_3",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 4454, "Y": 0, "Z": -1693 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "61",
+		"BuildingPlace": "outerBuilding_4",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 4420, "Y": 0, "Z": -1867 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "62",
+		"BuildingPlace": "outerBuilding_5",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 4658, "Y": 0, "Z": -1793 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "63",
+		"BuildingPlace": "outerBuilding_6",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 5120, "Y": 0, "Z": -1610 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "64",
+		"BuildingPlace": "outerBuilding_7",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3584, "Y": 0, "Z": -1495 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "65",
+		"BuildingPlace": "outerBuilding_8",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3399, "Y": 0, "Z": -1619 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "66",
+		"BuildingPlace": "outerBuilding_9",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3725, "Y": 0, "Z": -1625 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "67",
+		"BuildingPlace": "outerBuilding_10",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 2950, "Y": 0, "Z": -1694 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "68",
+		"BuildingPlace": "outerBuilding_11",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3267, "Y": 0, "Z": -1750 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "69",
+		"BuildingPlace": "outerBuilding_12",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3654, "Y": 0, "Z": -1782 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	},{
+		"Name": "70",
+		"BuildingPlace": "outerBuilding_13",
+		"BuildingCityPlace": "OUTER",
+		"BuildingPlaceType": "NORMAL",
+		"Vect":{ "X": 3118, "Y": 0, "Z": -1896 },
+		"Rot": { "Pitch": 0, "Yaw": 0, "Roll": 0 }
+	}
+]

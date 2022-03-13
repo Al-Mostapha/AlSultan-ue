@@ -2,3 +2,5 @@
 
 
 #include "SGameMain.h"
+
+FCityDS USGameMain::PlayerCity;

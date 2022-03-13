@@ -1,0 +1,210 @@
+[
+	{
+		"Name": "NewRow",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4174,
+			"Y": 1,
+			"Z": -1296
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_0",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4380,
+			"Y": 1,
+			"Z": -1520
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_1",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4454,
+			"Y": 1,
+			"Z": -1693
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_2",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4420,
+			"Y": 1,
+			"Z": -1867
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_3",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4658,
+			"Y": 1,
+			"Z": -1793
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "EndRight1",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 5120,
+			"Y": 0,
+			"Z": -1610
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_4",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 3584,
+			"Y": 1,
+			"Z": -1495
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_5",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 3399,
+			"Y": 1,
+			"Z": -1619
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_6",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 3725,
+			"Y": 1,
+			"Z": -1625
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_7",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 2950,
+			"Y": 1,
+			"Z": -1694
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_8",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 3267,
+			"Y": 1,
+			"Z": -1750
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_9",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 3654,
+			"Y": 1,
+			"Z": -1782
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_10",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 3118,
+			"Y": 0,
+			"Z": -1896
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	}
+]

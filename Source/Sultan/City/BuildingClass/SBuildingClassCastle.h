@@ -66,6 +66,7 @@ enum class ECityCastleSkin : uint8 {
 	ICEWOLF = 54 UMETA(DisplayName = "CS ICEWOLF")
 };
 
+
 USTRUCT(BlueprintType)
 struct FBuildingCastleSkinPart : public FTableRowBase {
 
@@ -111,6 +112,7 @@ class SULTAN_API ASBuildingClassCastle : public ASCityBuilding
 	GENERATED_BODY()
 public:
 	static TMap<ECityCastleSkin, FBuildingCastleSkin> CastleSkins;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UPaperSpriteComponent* Comp;
 	ASBuildingClassCastle();
 	static void initCastleSkin();

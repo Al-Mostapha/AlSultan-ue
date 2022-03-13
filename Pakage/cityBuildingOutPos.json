@@ -1,0 +1,482 @@
+[
+	{
+		"Name": "NewRow",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4505,
+			"Y": 0,
+			"Z": -580
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_0",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4711,
+			"Y": 1,
+			"Z": -590
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_1",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4893,
+			"Y": 1,
+			"Z": -622
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_2",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4598,
+			"Y": 1,
+			"Z": -658
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_3",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4769,
+			"Y": 1,
+			"Z": -693
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_4",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4960,
+			"Y": 1,
+			"Z": -722
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_26",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4542,
+			"Y": 1,
+			"Z": -749
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "EndPart1",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4705,
+			"Y": 0,
+			"Z": -784
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_6",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4466,
+			"Y": 1,
+			"Z": -955
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_7",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4674,
+			"Y": 1,
+			"Z": -968
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_8",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4877,
+			"Y": 1,
+			"Z": -944
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_9",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 5070,
+			"Y": 1,
+			"Z": -910
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_10",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4379,
+			"Y": 1,
+			"Z": -1064
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_5",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4562,
+			"Y": 1,
+			"Z": -1036
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_11",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4799,
+			"Y": 1,
+			"Z": -1036
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_12",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 5005,
+			"Y": 1,
+			"Z": -1007
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_13",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4254,
+			"Y": 1,
+			"Z": -1146
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_14",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4504,
+			"Y": 1,
+			"Z": -1137
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_15",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4677,
+			"Y": 1,
+			"Z": -1104
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_16",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4927,
+			"Y": 1,
+			"Z": -1096
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_17",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 5148,
+			"Y": 1,
+			"Z": -1069
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_18",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4388,
+			"Y": 1,
+			"Z": -1216
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_19",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4640,
+			"Y": 1,
+			"Z": -1209
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_20",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4809,
+			"Y": 1,
+			"Z": -1167
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_27",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 5062,
+			"Y": 1,
+			"Z": -1163
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_21",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4938,
+			"Y": 1,
+			"Z": -1235
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_22",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4530,
+			"Y": 1,
+			"Z": -1280
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_28",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4788,
+			"Y": 1,
+			"Z": -1286
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_24",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4664,
+			"Y": 1,
+			"Z": -1355
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_25",
+		"BuildingPlace": "",
+		"Vect":
+		{
+			"X": 4899,
+			"Y": 1,
+			"Z": -1368
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	}
+]

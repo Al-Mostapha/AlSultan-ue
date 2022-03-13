@@ -56,29 +56,7 @@ public:
 
 
 
-USTRUCT(BlueprintType)
-struct FCityBuildingData : public FTableRowBase {
 
-	GENERATED_BODY()
-public :
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Title;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Desc;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPaperSprite* FloorSprite;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FVector Offset;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		UTexture* Icon;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		UTexture* OverIcon;
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-		TSubclassOf<class ASCityBuilding> BuildingClass;
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-		TSubclassOf<class UUserWidget> BuildingProg;
-
-};
 
 UCLASS()
 class SULTAN_API ASCityBuilding : public APawn

@@ -1,0 +1,195 @@
+[
+
+	{
+		"Name": "NewRow_0",
+		"BuildingPlace": "CastleHall.Left.Row.1.Col.2",
+		"Vect":
+		{
+			"X": 2008,
+			"Y": 0,
+			"Z": -656
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_1",
+		"BuildingPlace": "CastleHall.Left.Row.1.Col.3",
+		"Vect":
+		{
+			"X": 2306,
+			"Y": 0,
+			"Z": -621
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_2",
+		"BuildingPlace": "CastleHall.Left.Row.2.Col.1",
+		"Vect":
+		{
+			"X": 2080,
+			"Y": 0,
+			"Z": -964
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_3",
+		"BuildingPlace": "CastleHall.Left.Row.2.Col.2",
+		"Vect":
+		{
+			"X": 2480,
+			"Y": 0,
+			"Z": -910
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_4",
+		"BuildingPlace": "CastleHall.Left.Row.3.Col.1",
+		"Vect":
+		{
+			"X": 2546,
+			"Y": 0,
+			"Z": -1211
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_5",
+		"BuildingPlace": "CastleHall.Left.Row.3.Col.2",
+		"Vect":
+		{
+			"X": 2828,
+			"Y": 0,
+			"Z": -1127
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_6",
+		"BuildingPlace": "CastleHall.Right.Row.1.Col.2",
+		"Vect":
+		{
+			"X": 2612,
+			"Y": 0,
+			"Z": -254
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_7",
+		"BuildingPlace": "CastleHall.Right.Row.1.Col.1",
+		"Vect":
+		{
+			"X": 2730,
+			"Y": 0,
+			"Z": -413
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_8",
+		"BuildingPlace": "CastleHall.Right.Row.1.Col.3",
+		"Vect":
+		{
+			"X": 2895,
+			"Y": 0,
+			"Z": -227
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_9",
+		"BuildingPlace": "CastleHall.Right.Row.2.Col.1",
+		"Vect":
+		{
+			"X": 3108,
+			"Y": 0,
+			"Z": -630
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_10",
+		"BuildingPlace": "CastleHall.Right.Row.2.Col.2",
+		"Vect":
+		{
+			"X": 3254,
+			"Y": 0,
+			"Z": -450
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	},
+	{
+		"Name": "NewRow_11",
+		"BuildingPlace": "CastleHall.Right.Row.3.Col.1",
+		"Vect":
+		{
+			"X": 3553,
+			"Y": 0,
+			"Z": -727
+		},
+		"Rot":
+		{
+			"Pitch": 0,
+			"Yaw": 0,
+			"Roll": 0
+		}
+	}
+]
