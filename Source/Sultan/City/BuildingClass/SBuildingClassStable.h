@@ -34,4 +34,5 @@ public:
 
 	void setStableCamels();
 	void setBuildingActionBtnList() override;
+	void initBuilding() override;
 };

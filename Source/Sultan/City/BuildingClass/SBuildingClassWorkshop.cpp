@@ -35,3 +35,7 @@ void ASBuildingClassWorkshop::OnClicked(UPrimitiveComponent* Target, FKey Button
 void ASBuildingClassWorkshop::setBuildingActionBtnList() {
 
 }
+
+void ASBuildingClassWorkshop::initBuilding() {
+
+}

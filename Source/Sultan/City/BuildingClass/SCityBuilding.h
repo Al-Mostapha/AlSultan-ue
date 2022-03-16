@@ -88,6 +88,7 @@ public:
 
 	FString CoolingIcon;
 	FString IL_CoolingTitle;
+	FString BuildingPlace;
 
 	ASCityBuilding();
 	void setSprite(class UPaperSprite* Sprite);
@@ -97,7 +98,7 @@ public:
 
 
 	void addActionBtnComp();
-
+	virtual void initBuilding();
 	virtual void setBuildingActionBtnList();
 
 

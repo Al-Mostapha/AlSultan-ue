@@ -38,3 +38,7 @@ void ASBuildingClassEmbassy::OnClicked(UPrimitiveComponent* Target, FKey ButtonP
 void ASBuildingClassEmbassy::setBuildingActionBtnList() {
 
 }
+
+void ASBuildingClassEmbassy::initBuilding() {
+
+}

@@ -36,3 +36,6 @@ void ASBuildingClassVeteransHall::OnClicked(UPrimitiveComponent* Target, FKey Bu
 void ASBuildingClassVeteransHall::setBuildingActionBtnList() {
 
 }
+void ASBuildingClassVeteransHall::initBuilding() {
+
+}

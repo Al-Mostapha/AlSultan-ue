@@ -33,4 +33,5 @@ public:
 	void hideTrainSol();
 	void setBuildingArcher();
 	void setBuildingActionBtnList() override;
+	void initBuilding() override;
 };

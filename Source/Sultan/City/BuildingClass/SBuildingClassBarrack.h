@@ -18,13 +18,14 @@ public:
 	static FString IL_BuildingTitle;
 	ASBuildingClassBarrack();
 	UPaperFlipbookComponent* TrainInfantry;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingActionBtnsComp* BtnCompDetail;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingActionBtnsComp* BtnCompUpgrade;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingActionBtnsComp* BtnCompTrain;
+
+	void initBuilding() override;
 
 	void setSprite();
 	virtual void BeginPlay() override;
@@ -34,7 +35,6 @@ public:
 	void hideTrainSol();
 	void setBarrackInfantry();
 	void bindBtnActionFunction();
-
 	UFUNCTION()
 	void OnBtnClickedDetail();	
 	UFUNCTION()

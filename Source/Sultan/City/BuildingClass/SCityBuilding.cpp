@@ -54,6 +54,10 @@ void ASCityBuilding::setBuildingActionBtnList() {
 
 }
 
+void ASCityBuilding::initBuilding() {
+
+}
+
 
 void ASCityBuilding::addActionBtnComp() {
 

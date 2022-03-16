@@ -4,6 +4,7 @@
 #include "SCBuilding.h"
 
 TArray<FBuildingPos> USCBuilding::BuildingPos;
+TMap<ECBuildingType, FBuildingData> USCBuilding::BuildingData;
 
 void USCBuilding::initBuildingPos() {
 
@@ -20,6 +21,24 @@ void USCBuilding::initBuildingPos() {
 	TArray<FBuildingPos*> CityBuildingPosArr;
 	BuildingPosDT->GetAllRows<FBuildingPos>(FString(TEXT("City Parts")), CityBuildingPosArr);
 	for (FBuildingPos* OneBuilding : CityBuildingPosArr) 
-		USCBuilding::BuildingPos.Add(*OneBuilding);
+		BuildingPos.Add(*OneBuilding);
+	
+}
+
+
+void USCBuilding::initBuildingData() {
+
+	UDataTable* BuildingDataDT = LoadObject<class UDataTable>(nullptr, TEXT("DataTable'/Game/City/CityOld/DT_BuildingData.DT_BuildingData'"));
+
+
+	if (!BuildingDataDT) {
+		GLog->Log("Error BuildingData Not found");
+		return;
+	}
+
+	TArray<FBuildingData*> CityBuildingDataArr;
+	BuildingDataDT->GetAllRows<FBuildingData>(FString(TEXT("City Parts")), CityBuildingDataArr);
+	for (FBuildingData* OneBuilding : CityBuildingDataArr)
+		BuildingData.Add(OneBuilding->buildingType, *OneBuilding);
 	
 }

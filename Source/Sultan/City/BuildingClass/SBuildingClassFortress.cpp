@@ -38,3 +38,6 @@ void ASBuildingClassFortress::OnClicked(UPrimitiveComponent* Target, FKey Button
 void ASBuildingClassFortress::setBuildingActionBtnList() {
 
 }
+void ASBuildingClassFortress::initBuilding() {
+
+}

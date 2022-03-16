@@ -36,3 +36,8 @@ void ASBuildingClassWarehouse::OnClicked(UPrimitiveComponent* Target, FKey Butto
 void ASBuildingClassWarehouse::setBuildingActionBtnList() {
 
 }
+
+
+void ASBuildingClassWarehouse::initBuilding() {
+
+}

@@ -101,3 +101,5 @@ void ASBuildingClassBarrack::OnBtnClickedTrain() {
 	GLog->Log("-----------------**////////////////*-----------------");
 
 }
+
+void ASBuildingClassBarrack::initBuilding() {}

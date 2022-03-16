@@ -37,3 +37,6 @@ void ASBuildingClassDrill::OnClicked(UPrimitiveComponent* Target, FKey ButtonPre
 void ASBuildingClassDrill::setBuildingActionBtnList() {
 
 }
+void ASBuildingClassDrill::initBuilding() {
+
+}

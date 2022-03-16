@@ -72,3 +72,8 @@ void ASBuildingClassTargetRange::OnClicked(UPrimitiveComponent* Target, FKey But
 void ASBuildingClassTargetRange::setBuildingActionBtnList() {
 
 }
+
+
+void ASBuildingClassTargetRange::initBuilding() {
+
+}

@@ -36,3 +36,6 @@ void ASBuildingClassMarket::OnClicked(UPrimitiveComponent* Target, FKey ButtonPr
 void ASBuildingClassMarket::setBuildingActionBtnList() {
 
 }
+
+
+void ASBuildingClassMarket::initBuilding() {}

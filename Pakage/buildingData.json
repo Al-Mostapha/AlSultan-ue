@@ -1,0 +1,312 @@
+[
+	{
+		"Name": "1",
+		"IL_Title": "buildDes_name_101",
+		"IL_Desc": "",
+		"buildingType": "CASTLE",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassCastle'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "2",
+		"IL_Title": "buildDes_name_102",
+		"IL_Desc": "",
+		"buildingType": "WALLS",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassWall'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "3",
+		"IL_Title": "buildDes_name_103",
+		"IL_Desc": "",
+		"buildingType": "ARROW_TOWER",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassArrowTower'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "4",
+		"IL_Title": "buildDes_name_104",
+		"IL_Desc": "",
+		"buildingType": "WATCH_TOWER",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassWatchTower'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "5",
+		"IL_Title": "buildDes_name_105",
+		"IL_Desc": "",
+		"buildingType": "WARE_HOUSE",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassWarehouse'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "6",
+		"IL_Title": "buildDes_name_106",
+		"IL_Desc": "",
+		"buildingType": "EVENT_CENTER",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassWall'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "7",
+		"IL_Title": "buildDes_name_107",
+		"IL_Desc": "",
+		"buildingType": "TRAVEL_MERCHANT",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassTravelMerchant'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "8",
+		"IL_Title": "buildDes_name_108",
+		"IL_Desc": "",
+		"buildingType": "HARBOR",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassHarbor'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "9",
+		"IL_Title": "buildDes_name_109",
+		"IL_Desc": "",
+		"buildingType": "TROOP_DETAILS",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassTroopsDetail'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "10",
+		"IL_Title": "buildDes_name_110",
+		"IL_Desc": "",
+		"buildingType": "STATUE",
+		"buildingPlaceType": "FIXED",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassStatue'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "11",
+		"IL_Title": "buildDes_name_111",
+		"IL_Desc": "",
+		"buildingType": "EMBASSY",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassEmbassy'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "12",
+		"IL_Title": "buildDes_name_112",
+		"IL_Desc": "",
+		"buildingType": "MARKET",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassMarket'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "13",
+		"IL_Title": "buildDes_name_113",
+		"IL_Desc": "",
+		"buildingType": "COLLEGE",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassInstitute'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "14",
+		"IL_Title": "buildDes_name_114",
+		"IL_Desc": "",
+		"buildingType": "WISHING_WELL",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassTreasurePool'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "15",
+		"IL_Title": "buildDes_name_115",
+		"IL_Desc": "",
+		"buildingType": "BLACK_SMITH",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassBlackSmith'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "16",
+		"IL_Title": "buildDes_name_116",
+		"IL_Desc": "",
+		"buildingType": "STABLES",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassStable'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "17",
+		"IL_Title": "buildDes_name_117",
+		"IL_Desc": "",
+		"buildingType": "RANGE",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassTargetRange'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "18",
+		"IL_Title": "buildDes_name_118",
+		"IL_Desc": "",
+		"buildingType": "BARRACKS",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassBarrack'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "19",
+		"IL_Title": "buildDes_name_119",
+		"IL_Desc": "",
+		"buildingType": "WORKSHOP",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassWorkshop'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "20",
+		"IL_Title": "buildDes_name_120",
+		"IL_Desc": "",
+		"buildingType": "FORTRESS",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassFortress'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "21",
+		"IL_Title": "buildDes_name_121",
+		"IL_Desc": "",
+		"buildingType": "DRILL_GROUDS",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassDrill'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "22",
+		"IL_Title": "buildDes_name_122",
+		"IL_Desc": "",
+		"buildingType": "HALL_OF_WAR",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "INNER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassHallOfWar'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "24",
+		"IL_Title": "buildDes_name_201",
+		"IL_Desc": "",
+		"buildingType": "FARM",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassOFarm'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "25",
+		"IL_Title": "buildDes_name_202",
+		"IL_Desc": "",
+		"buildingType": "SAWMILL",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassOSawMill'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "26",
+		"IL_Title": "buildDes_name_203",
+		"IL_Desc": "",
+		"buildingType": "IRON_MINE",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassOIronMine'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "27",
+		"IL_Title": "buildDes_name_204",
+		"IL_Desc": "",
+		"buildingType": "STEEL",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassOSteel'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "28",
+		"IL_Title": "buildDes_name_205",
+		"IL_Desc": "",
+		"buildingType": "MILITARY_TENT",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassOMiliTent'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "29",
+		"IL_Title": "buildDes_name_206",
+		"IL_Desc": "",
+		"buildingType": "HOSPITAL",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassOHospital'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "30",
+		"IL_Title": "buildDes_name_102",
+		"IL_Desc": "",
+		"buildingType": "MATERIAL_WORKSHOP",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassWall'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "31",
+		"IL_Title": "buildDes_name_102",
+		"IL_Desc": "",
+		"buildingType": "MIRACLE",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassWall'",
+		"BuildingProg": "None"
+	},
+	{
+		"Name": "32",
+		"IL_Title": "buildDes_name_102",
+		"IL_Desc": "",
+		"buildingType": "ELITE_PALACE",
+		"buildingPlaceType": "NORMAL",
+		"buildingCityPlace": "OUTER",
+		"BuildingClass": "Class'/Script/Sultan.SBuildingClassWall'",
+		"BuildingProg": "None"
+	}
+]

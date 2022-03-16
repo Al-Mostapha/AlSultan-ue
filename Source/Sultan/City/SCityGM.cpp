@@ -38,8 +38,7 @@ void ASCityGM::StartPlay() {
 	FBuildingActionBtn::initActionBtn();
 	ASBuildingClassCastle::initCastleSkin();
 	USCBuilding::initBuildingPos();
-
-	buildCompleteBuilding();
+	USCBuilding::initBuildingData();
 	buildCityFloor();
 	
 	USNetBase* Req = NewObject<USNetBase>();
@@ -51,21 +50,20 @@ void ASCityGM::StartPlay() {
 		{"Test5", "Test"},
 		{"Test6", "Test"},
 	};
-	Req->OnComplete = [Req]() {
+	Req->OnComplete = [this, Req]() {
 		GLog->Log("----------------------------");
 		/**TSharedPtr<FJsonObject> JsonValue;
 		TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(Req->Response->GetContentAsString());
 		if(!FJsonSerializer::Deserialize(Reader, JsonValue)){
 			GLog->Log(JsonValue->GetStringField("State"));
 		}*/
-
 		FJsonObjectConverter::JsonObjectToUStruct(Req->ResJson.ToSharedRef(), &USGameMain::PlayerCity);
-
 		PRINT_STRUCT(USGameMain::PlayerCity);
+		buildCityBuilding();
 	};
 	Req->GetReq("/api/CCity/getCity");
 
-	buildCityBuilding();
+	
 
 	return;
 
@@ -111,7 +109,7 @@ void ASCityGM::buildCityFloor() {
 
 
 void ASCityGM::buildCityBuilding() {
-
+	/**
 	ASCityBuilding::CityBuildingPos = LoadObject<class UDataTable>(nullptr, TEXT("DataTable'/Game/City/CityOld/DTCityBuildingPos.DTCityBuildingPos'"));
 
 	if (!ASCityBuilding::CityBuildingPos) {
@@ -132,7 +130,33 @@ void ASCityGM::buildCityBuilding() {
 		OneCityBuilding->setSprite(Temp);
 
 		//OneCityBuildingPos->setSprite(OneCityBuildingPos->Sprite);
+	}*/
+	ASCityBuilding* OneCityBuilding;
+	for (auto OneBuilding : USCBuilding::BuildingPos) {
+		FCityBuildingUnitDS Building;
+		if (OneBuilding.BuildingCityPlace == ECBuildingCityPlace::INNER)
+			Building = USGameMain::PlayerCity.BuildingInner.getBuilding(FName(*OneBuilding.BuildingPlace));
+		else if (OneBuilding.BuildingCityPlace == ECBuildingCityPlace::OUTER)
+			Building = USGameMain::PlayerCity.BuildingOuter.getBuilding(FName(*OneBuilding.BuildingPlace));
+		else
+			GLog->Log("----------------------- ERROR Buildig Type");
+
+		if (!USCBuilding::BuildingData.Contains(Building.buildingType)) {
+			GLog->Log("----------------------- ERROR Buildig Type NOT FOUND IN MAP -> " + FString::FromInt(static_cast<uint8>(Building.buildingType))  + "  === " + OneBuilding.BuildingPlace);
+			continue;
+		}
+
+		FBuildingData BuildingData = USCBuilding::BuildingData[Building.buildingType];
+		OneCityBuilding =  GetWorld()->SpawnActor<ASCityBuilding>(BuildingData.BuildingClass, OneBuilding.Vect, OneBuilding.Rot);
+		if (!OneCityBuilding) {
+			GLog->Log("----------------------- ERROR Buildig Type NOT FOUND IN MAP At Place " + OneBuilding.BuildingPlace + "---" +  FString::FromInt(static_cast<uint8>(Building.buildingType)));
+			continue;
+		}
+		OneCityBuilding->initBuilding();
+		OneCityBuilding->BuildingPlace = OneBuilding.BuildingPlace;
+		GLog->Log(OneBuilding.BuildingPlace);
 	}
+
 
 
 }
@@ -265,7 +289,7 @@ void ASCityGM::buildCompleteBuilding() {
 	iii1->setSkin(ECityCastleSkin::CLASSICAL);
 
 	return;
-
+	/**
 
 	UDataTable* TestTable = LoadObject<class UDataTable>(nullptr, TEXT("DataTable'/Game/City/CityOld/NewDataTable.NewDataTable'"));
 
@@ -280,11 +304,11 @@ void ASCityGM::buildCompleteBuilding() {
 
 	for (FCityBuildingData* OneCityBuildingPos : CityBuildingPosArr) {
 
-		ASCityBuilding* Test = GetWorld()->SpawnActor<ASCityBuilding>(OneCityBuildingPos->BuildingClass, FVector::ZeroVector, FRotator::ZeroRotator);
+		ASCityBuilding* Test = GetWorld()->SpawnActor<ASCityBuilding>(OneCityBuildingPos->BuildingClass, FVector::ZeroVector, FRotator::ZeroRotator);*/
 		//Test->setSprite(OneCityBuildingPos->FloorSprite);
 		//Test->WidgitComp->SetWidgetClass(OneCityBuildingPos->BuildingProg);
 		//Test->WidgitComp
-	}
+	//}
 }
 
 

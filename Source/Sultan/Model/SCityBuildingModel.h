@@ -13,7 +13,7 @@ struct FCityBuildingUnitDS {
 
 	GENERATED_BODY()
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) int32 buildingLvl;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere) int32 buildingType;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) ECBuildingType buildingType;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) bool  buildingLocked;
 
 };
@@ -29,7 +29,7 @@ struct FCityBuildingInnerDS {
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS wallGate;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	arrowTower;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	watchTower;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	bigSale;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	merchant;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	leisureHouse;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	statue;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	petCenter;
@@ -48,6 +48,28 @@ struct FCityBuildingInnerDS {
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	innerBuilding_11;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	innerBuilding_12;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) FCityBuildingUnitDS	innerBuilding_13;
+
+	FCityBuildingUnitDS getBuilding(FName BuildingPlace) {
+
+		FCityBuildingUnitDS Out;
+		Out.buildingLvl = -1;
+		FProperty* prop = FCityBuildingInnerDS::StaticStruct()->FindPropertyByName(BuildingPlace);
+
+		if (!prop)
+			return Out;
+		FStructProperty* idC = CastField<FStructProperty>(prop);
+		if (!idC)
+			return Out;
+
+
+		FCityBuildingUnitDS* Add = prop->ContainerPtrToValuePtr<FCityBuildingUnitDS>(this);
+		/**if (FCityBuildingUnitDS* TTTT = Cast<FCityBuildingUnitDS>(Add))
+			return *TTTT;*/
+		if (Add)
+			return *Add;
+		return Out;
+
+	}
 
 };
 
@@ -104,7 +126,7 @@ struct FCityBuildingOuterDS {
 		
 		FCityBuildingUnitDS Out;
 		Out.buildingLvl = -1;
-		FProperty* prop = FCityBuildingOuterDS::StaticStruct()->FindPropertyByName(FName("resBuilding_1"));
+		FProperty* prop = FCityBuildingOuterDS::StaticStruct()->FindPropertyByName(BuildingPlace);
 
 		if (!prop)
 			return Out;

@@ -111,3 +111,7 @@ void ASBuildingClassCastle::Clicked(AActor* Target, FKey ButtonPressed) {
 	
 
 }
+
+void ASBuildingClassCastle::initBuilding() {
+
+}

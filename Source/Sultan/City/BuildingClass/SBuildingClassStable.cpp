@@ -71,3 +71,7 @@ void ASBuildingClassStable::OnClicked(UPrimitiveComponent* Target, FKey ButtonPr
 void ASBuildingClassStable::setBuildingActionBtnList() {
 
 }
+
+void ASBuildingClassStable::initBuilding() {
+
+}

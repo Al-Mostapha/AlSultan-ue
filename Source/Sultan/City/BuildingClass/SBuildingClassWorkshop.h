@@ -21,6 +21,7 @@ public:
 	void setSprite();
 	virtual void BeginPlay() override;
 	UFUNCTION()
-		void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+	void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
 	void setBuildingActionBtnList() override;
+	void initBuilding() override;
 };

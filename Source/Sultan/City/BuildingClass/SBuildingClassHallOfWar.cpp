@@ -38,3 +38,7 @@ void ASBuildingClassHallOfWar::OnClicked(UPrimitiveComponent* Target, FKey Butto
 void ASBuildingClassHallOfWar::setBuildingActionBtnList() {
 
 }
+
+void ASBuildingClassHallOfWar::initBuilding() {
+
+}

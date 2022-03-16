@@ -118,7 +118,10 @@ public:
 	static void initCastleSkin();
 	void setSkin(ECityCastleSkin CSkin);
 	void setBuildingActionBtnList() override;
+	void initBuilding() override;
 
 	UFUNCTION()
 	void Clicked(AActor* Target, FKey ButtonPressed);
+
+
 };

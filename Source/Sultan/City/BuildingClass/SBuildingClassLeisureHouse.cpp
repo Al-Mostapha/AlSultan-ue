@@ -34,3 +34,5 @@ void ASBuildingClassLeisureHouse::OnClicked(UPrimitiveComponent* Target, FKey Bu
 void ASBuildingClassLeisureHouse::setBuildingActionBtnList() {
 
 }
+
+void ASBuildingClassLeisureHouse::initBuilding() {}

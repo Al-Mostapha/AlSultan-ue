@@ -36,3 +36,7 @@ void ASBuildingClassTreasurePool::OnClicked(UPrimitiveComponent* Target, FKey Bu
 void ASBuildingClassTreasurePool::setBuildingActionBtnList() {
 
 }
+
+void ASBuildingClassTreasurePool::initBuilding() {
+
+}

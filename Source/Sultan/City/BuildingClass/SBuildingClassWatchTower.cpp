@@ -36,3 +36,7 @@ void ASBuildingClassWatchTower::OnClicked(UPrimitiveComponent* Target, FKey Butt
 void ASBuildingClassWatchTower::setBuildingActionBtnList() {
 
 }
+
+void ASBuildingClassWatchTower::initBuilding() {
+
+}

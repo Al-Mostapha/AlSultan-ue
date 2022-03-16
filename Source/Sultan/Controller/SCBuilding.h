@@ -46,16 +46,17 @@ enum class ECBuildingPlaceType : uint8 {
 
 UENUM()
 enum class ECBuildingType : uint8 {
+	BUILDING_NONE = 0,
 	CASTLE = 1,
 	WALLS = 2,
-	TURRET = 3,
+	ARROW_TOWER = 3,
 	WATCH_TOWER = 4,
-	DEPOT = 5,
+	WARE_HOUSE = 5,
 	EVENT_CENTER = 6,
 	TRAVEL_MERCHANT = 7,
 	HARBOR = 8,
 	TROOP_DETAILS = 9,
-	HELP = 10,
+	STATUE = 10,
 	EMBASSY = 11,
 	MARKET = 12,
 	COLLEGE = 13,
@@ -63,8 +64,8 @@ enum class ECBuildingType : uint8 {
 	BLACK_SMITH = 15,
 	STABLES = 16,
 	RANGE = 17,
-	CHARIOT_PLANT = 18,
-	BARRACKS = 19,
+	BARRACKS = 18,
+	WORKSHOP = 19,
 	FORTRESS = 20,
 	DRILL_GROUDS = 21,
 	HALL_OF_WAR = 22,
@@ -73,7 +74,7 @@ enum class ECBuildingType : uint8 {
 	IRON_MINE = 52,
 	STEEL = 53,
 	MILITARY_TENT = 54,
-	HOSTPITAL = 55,
+	HOSPITAL = 55,
 	MATERIAL_WORKSHOP = 56,
 	MIRACLE = 100,
 	ELITE_PALACE = 120
@@ -81,7 +82,7 @@ enum class ECBuildingType : uint8 {
 
 
 USTRUCT(BlueprintType)
-struct FCityBuildingData : public FTableRowBase {
+struct FBuildingData : public FTableRowBase {
 
 	GENERATED_BODY()
 public:
@@ -91,6 +92,10 @@ public:
 		FString IL_Desc;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		ECBuildingType buildingType;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		ECBuildingPlaceType buildingPlaceType;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		ECBuildingCityPlace buildingCityPlace;
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 		TSubclassOf<class ASCityBuilding> BuildingClass;
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
@@ -125,5 +130,7 @@ class SULTAN_API USCBuilding : public UObject
 	GENERATED_BODY()
 public:
 	static TArray<FBuildingPos> BuildingPos;
+	static TMap<ECBuildingType, FBuildingData> BuildingData;
 	static void initBuildingPos();
+	static void initBuildingData();
 };

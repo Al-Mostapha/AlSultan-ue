@@ -23,4 +23,5 @@ public:
 	UFUNCTION()
 		void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
 	void setBuildingActionBtnList() override;
+	void initBuilding() override;
 };

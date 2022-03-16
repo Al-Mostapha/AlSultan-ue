@@ -35,3 +35,7 @@ void ASBuildingClassBlackSmith::OnClicked(UPrimitiveComponent* Target, FKey Butt
 void ASBuildingClassBlackSmith::setBuildingActionBtnList() {
 
 }
+
+void ASBuildingClassBlackSmith::initBuilding() {
+
+}
