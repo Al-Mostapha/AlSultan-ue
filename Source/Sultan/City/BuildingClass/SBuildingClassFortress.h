@@ -15,6 +15,19 @@ class SULTAN_API ASBuildingClassFortress : public ASCityBuilding
 	GENERATED_BODY()
 public:
 
+	/* Btn Building List */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompBuildTraps;
+
+
+	/* Btn Function  Building List */
+	UFUNCTION() void OnBtnClickedDetail();
+	UFUNCTION() void OnBtnClickedUpgrade();
+	UFUNCTION() void OnBtnClickedBuildTraps();
+
+
+
 	static FString IL_BuildingTitle;
 	ASBuildingClassFortress();
 
@@ -24,4 +37,5 @@ public:
 		void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
+	void bindBtnActionFunction();
 };

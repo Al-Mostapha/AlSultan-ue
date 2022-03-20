@@ -9,6 +9,15 @@ FString ASBuildingClassTargetRange::IL_BuildingTitle = "buildDes_name_117";
 ASBuildingClassTargetRange::ASBuildingClassTargetRange() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassTargetRange::OnClicked);
+
+	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
+	BtnCompTrain = BtnListComp.Add(EBuildingBtnAction::BBA_TRAIN, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompTrain")));
+
+	BtnCompDetail->SetupAttachment(RootComponent);
+	BtnCompUpgrade->SetupAttachment(RootComponent);
+	BtnCompTrain->SetupAttachment(RootComponent);
+
 	setBuildingArcher();
 
 }
@@ -61,6 +70,46 @@ void ASBuildingClassTargetRange::BeginPlay() {
 	Super::BeginPlay();
 	showTrainSol();
 	setSprite();
+	addActionBtnComp();
+	bindBtnActionFunction();
+}
+
+
+void ASBuildingClassTargetRange::bindBtnActionFunction() {
+
+	USWid_BuildingACBtn* T = Cast<USWid_BuildingACBtn>(BtnCompDetail->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassTargetRange::OnBtnClickedDetail);
+
+	T = Cast<USWid_BuildingACBtn>(BtnCompUpgrade->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassTargetRange::OnBtnClickedUpgrade);
+
+	T = Cast<USWid_BuildingACBtn>(BtnCompTrain->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassTargetRange::OnBtnClickedTrain);
+
+}
+
+
+void ASBuildingClassTargetRange::OnBtnClickedDetail() {
+
+	GLog->Log("-----------------**************-----------------");
+
+}
+
+
+void ASBuildingClassTargetRange::OnBtnClickedUpgrade() {
+
+	GLog->Log("-----------------+++++++++++++++++++-----------------");
+
+}
+
+
+void ASBuildingClassTargetRange::OnBtnClickedTrain() {
+
+	GLog->Log("-----------------**////////////////*-----------------");
+
 }
 
 void ASBuildingClassTargetRange::OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed) {

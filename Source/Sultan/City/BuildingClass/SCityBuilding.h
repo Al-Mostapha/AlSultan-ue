@@ -14,6 +14,7 @@
 #include "../Building/SBuildingBtnComp.h"
 #include "../Building/SBuildingActionBtnsComp.h"
 #include "../BuildingWid/SBuildingActionBtnsWid.h"
+#include "../../Include/IncludeConfig.h"
 #include "Components/WidgetComponent.h"
 #include "PaperFlipbookComponent.h"
 #include "PaperFlipbook.h"

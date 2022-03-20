@@ -10,6 +10,17 @@ ASBuildingClassDrill::ASBuildingClassDrill() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassDrill::OnClicked);
 	
+	
+	BtnCompArena   = BtnListComp.Add(EBuildingBtnAction::BBA_ARENA, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompArena")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
+	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+
+
+
+	BtnCompDetail->SetupAttachment(RootComponent);
+	BtnCompUpgrade->SetupAttachment(RootComponent);
+	BtnCompArena->SetupAttachment(RootComponent);
+	
 }
 
 
@@ -27,12 +38,45 @@ void ASBuildingClassDrill::BeginPlay() {
 
 	Super::BeginPlay();
 	setSprite();
+	addActionBtnComp();
+	bindBtnActionFunction();
 }
 
 void ASBuildingClassDrill::OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed) {
 
 
 }
+
+void ASBuildingClassDrill::bindBtnActionFunction() {
+
+	USWid_BuildingACBtn* T = Cast<USWid_BuildingACBtn>(BtnCompDetail->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassDrill::OnBtnClickedDetail);
+
+	T = Cast<USWid_BuildingACBtn>(BtnCompUpgrade->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassDrill::OnBtnClickedUpgrade);
+
+	T = Cast<USWid_BuildingACBtn>(BtnCompArena->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassDrill::OnBtnClickedArena);
+
+
+}
+
+
+void ASBuildingClassDrill::OnBtnClickedDetail() {
+	GLog->Log(__FUNCTION__);
+}
+void ASBuildingClassDrill::OnBtnClickedUpgrade() {
+	GLog->Log(__FUNCTION__);
+}
+void ASBuildingClassDrill::OnBtnClickedArena() {
+	GLog->Log(__FUNCTION__);
+}
+
+
+
 
 void ASBuildingClassDrill::setBuildingActionBtnList() {
 

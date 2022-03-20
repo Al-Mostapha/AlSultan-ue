@@ -82,10 +82,12 @@ void ASCityBuilding::addActionBtnComp() {
 			continue;
 
 		Btn.Value->SetWidgetClass(ActBtn->WP_Button);
+
 		x = FMath::Sin(FMath::DegreesToRadians(startingAngle + 90 + index * 30)) * Reduis;
 		y = FMath::Cos(FMath::DegreesToRadians(startingAngle + 90 + index * 30)) * Reduis;
 		USWid_BuildingACBtn* ActBtnWid = Cast<USWid_BuildingACBtn>(Btn.Value->GetUserWidgetObject());
 		Btn.Value->SetRelativeLocation(FVector(x, 10, y));
+
 		if (!ActBtnWid)
 			continue;
 		ActBtnWid->ActionBtn->SetStyle(USWid_BuildingACBtn::BtnStyle);

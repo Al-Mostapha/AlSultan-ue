@@ -18,11 +18,23 @@ public:
 	static FString IL_BuildingTitle;
 	ASBuildingClassWatchTower();
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompMilitary;
+
+	/*
+		Btn Function  Building List
+	*/
+	UFUNCTION() void OnBtnClickedDetail();
+	UFUNCTION() void OnBtnClickedUpgrade();
+	UFUNCTION() void OnBtnClickedMilitary();
+	UFUNCTION() void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+
+
 	void setSprite();
 	virtual void BeginPlay() override;
-
-	UFUNCTION()
-		void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
+	void bindBtnActionFunction();
 };

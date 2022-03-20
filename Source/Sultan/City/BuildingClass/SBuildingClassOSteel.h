@@ -13,5 +13,28 @@ UCLASS()
 class SULTAN_API ASBuildingClassOSteel : public ASCityBuilding
 {
 	GENERATED_BODY()
-		void initBuilding() override;
+public:
+
+	ASBuildingClassOSteel();
+
+	static FString IL_BuildingTitle;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompItemAcce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompGoldAcce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompCollect;
+
+	UFUNCTION() void OnBtnClickedItemAcce();
+	UFUNCTION() void OnBtnClickedGoldAcce();
+	UFUNCTION() void OnBtnClickedDetail();
+	UFUNCTION() void OnBtnClickedUpgrade();
+	UFUNCTION() void OnBtnClickedCollect();
+	UFUNCTION() void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+
+
+	void setSprite();
+	virtual void BeginPlay() override;
+	void setBuildingActionBtnList() override;
+	void initBuilding() override;
+	void bindBtnActionFunction();
 };

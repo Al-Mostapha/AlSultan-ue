@@ -18,10 +18,22 @@ public:
 	static FString IL_BuildingTitle;
 	ASBuildingClassInstitute();
 
+	/* Btn Building List */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompResearch;
+
+
+	/* Btn Function  Building List */
+	UFUNCTION() void OnBtnClickedDetail();
+	UFUNCTION() void OnBtnClickedUpgrade();
+	UFUNCTION() void OnBtnClickedResearch();
+	UFUNCTION() void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+
+
 	void setSprite();
-	virtual void BeginPlay() override;
-	UFUNCTION()
-		void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+    void BeginPlay() override;
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
+	void bindBtnActionFunction();
 };

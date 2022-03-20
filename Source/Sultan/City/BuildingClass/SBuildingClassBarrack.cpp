@@ -9,19 +9,22 @@ ASBuildingClassBarrack::ASBuildingClassBarrack() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassBarrack::OnClicked);
 	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompDetail->SetupAttachment(RootComponent);
 	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE,CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
+	BtnCompUpgrade->SetupAttachment(RootComponent);
 	BtnCompTrain   = BtnListComp.Add(EBuildingBtnAction::BBA_TRAIN,  CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompTrain")));
+	BtnCompTrain->SetupAttachment(RootComponent);
 	TrainInfantry  = CreateDefaultSubobject<UPaperFlipbookComponent>(TEXT("TrainInfantry"));
+	TrainInfantry->SetupAttachment(RootComponent);
+	
 	IL_CoolingTitle = "";
 	setBarrackInfantry();
+	showTrainSol();
 
 }
 
 
 void ASBuildingClassBarrack::setBarrackInfantry() {
-
-	
-	TrainInfantry->SetupAttachment(RootComponent);
 	TrainInfantry->SetRelativeLocation(FVector(-8, 5, -24));
 }
 
@@ -39,6 +42,10 @@ void ASBuildingClassBarrack::showTrainSol() {
 	UPaperFlipbook* InfantryFB = LoadObject<UPaperFlipbook>(nullptr, TEXT("PaperFlipbook'/Game/Animation/MainCity/MainCityNPC/bybubing.bybubing'"));
 	if (InfantryFB) {
 		TrainInfantry->SetFlipbook(InfantryFB);
+	}
+	else {
+	
+		GLog->Log("---------------------- Animation Not Found");
 	}
 
 }

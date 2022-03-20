@@ -15,8 +15,23 @@ class SULTAN_API ASBuildingClassEmbassy : public ASCityBuilding
 	GENERATED_BODY()
 public:
 
-		static FString IL_BuildingTitle;
-		ASBuildingClassEmbassy();
+	/* Btn Building List */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompHelp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompReinforce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompParliament;
+
+
+	/* Btn Function  Building List */
+	UFUNCTION() void OnBtnClickedDetail();
+	UFUNCTION() void OnBtnClickedUpgrade();
+	UFUNCTION() void OnBtnClickedHelp();
+	UFUNCTION() void OnBtnClickedReinforce();
+	UFUNCTION() void OnBtnClickedParliament();
+
+	static FString IL_BuildingTitle;
+	ASBuildingClassEmbassy();
 
 	void setSprite();
 	virtual void BeginPlay() override;
@@ -24,4 +39,5 @@ public:
 		void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
+	void bindBtnActionFunction();
 };

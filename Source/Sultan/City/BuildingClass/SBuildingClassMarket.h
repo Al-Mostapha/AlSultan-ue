@@ -18,10 +18,25 @@ public:
 	static FString IL_BuildingTitle;
 	ASBuildingClassMarket();
 
+	/*
+		Btn List
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompTrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompAuction;
+
+	UFUNCTION() void OnBtnClickedDetail();
+	UFUNCTION() void OnBtnClickedUpgrade();
+	UFUNCTION() void OnBtnClickedTrade();
+	UFUNCTION() void OnBtnClickedAuction();
+	UFUNCTION() void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+
+
 	void setSprite();
 	virtual void BeginPlay() override;
-	UFUNCTION()
-		void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+	
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
+	void bindBtnActionFunction();
 };

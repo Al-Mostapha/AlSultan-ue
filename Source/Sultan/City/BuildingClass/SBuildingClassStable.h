@@ -25,14 +25,26 @@ public:
 	UPaperFlipbookComponent* TrainCamel4;
 
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompTrain;
+
+	/*
+		Btn Function  Building List
+	*/
+	UFUNCTION() void OnBtnClickedDetail();
+	UFUNCTION() void OnBtnClickedUpgrade();
+	UFUNCTION() void OnBtnClickedTrain();
+	UFUNCTION() void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+
+
 	void setSprite();
 	virtual void BeginPlay() override;
-	UFUNCTION()
-	void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
 	void showTrainSol();
 	void hideTrainSol();
 
 	void setStableCamels();
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
+	void bindBtnActionFunction();
 };

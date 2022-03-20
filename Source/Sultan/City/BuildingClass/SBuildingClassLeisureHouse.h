@@ -18,10 +18,22 @@ public:
 	static FString IL_BuildingTitle;
 	ASBuildingClassLeisureHouse();
 
+	/*
+		Btn Building List
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompPyramid;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompFriend;
+
+	/*
+		Btn Function  Building List
+	*/
+	UFUNCTION() void OnBtnClickedPyramid();
+	UFUNCTION() void OnBtnClickedFriend();
+	UFUNCTION() void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+
 	void setSprite();
 	virtual void BeginPlay() override;
-	UFUNCTION()
-		void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
+	void bindBtnActionFunction();
 };

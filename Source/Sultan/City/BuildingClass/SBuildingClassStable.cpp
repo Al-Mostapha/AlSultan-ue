@@ -9,6 +9,15 @@ FString ASBuildingClassStable::IL_BuildingTitle = "buildDes_name_116";
 ASBuildingClassStable::ASBuildingClassStable() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassStable::OnClicked);
+
+	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
+	BtnCompTrain = BtnListComp.Add(EBuildingBtnAction::BBA_TRAIN, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompTrain")));
+	
+	BtnCompDetail->SetupAttachment(RootComponent);
+	BtnCompUpgrade->SetupAttachment(RootComponent);
+	BtnCompTrain->SetupAttachment(RootComponent);
+
 	setStableCamels();
 
 }
@@ -61,6 +70,46 @@ void ASBuildingClassStable::BeginPlay() {
 	Super::BeginPlay();
 	showTrainSol();
 	setSprite();
+	addActionBtnComp();
+	bindBtnActionFunction();
+}
+
+
+void ASBuildingClassStable::bindBtnActionFunction() {
+
+	USWid_BuildingACBtn* T = Cast<USWid_BuildingACBtn>(BtnCompDetail->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassStable::OnBtnClickedDetail);
+
+	T = Cast<USWid_BuildingACBtn>(BtnCompUpgrade->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassStable::OnBtnClickedUpgrade);
+
+	T = Cast<USWid_BuildingACBtn>(BtnCompTrain->GetUserWidgetObject());
+	if (T)
+		T->ActionBtn->OnClicked.AddDynamic(this, &ASBuildingClassStable::OnBtnClickedTrain);
+
+}
+
+
+void ASBuildingClassStable::OnBtnClickedDetail() {
+
+	GLog->Log("-----------------**************-----------------");
+
+}
+
+
+void ASBuildingClassStable::OnBtnClickedUpgrade() {
+
+	GLog->Log("-----------------+++++++++++++++++++-----------------");
+
+}
+
+
+void ASBuildingClassStable::OnBtnClickedTrain() {
+
+	GLog->Log("-----------------**////////////////*-----------------");
+
 }
 
 void ASBuildingClassStable::OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed) {

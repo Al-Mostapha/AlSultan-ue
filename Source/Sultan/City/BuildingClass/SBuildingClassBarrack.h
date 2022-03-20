@@ -15,9 +15,15 @@ class SULTAN_API ASBuildingClassBarrack : public ASCityBuilding
 	GENERATED_BODY()
 
 public:
-	static FString IL_BuildingTitle;
+	
 	ASBuildingClassBarrack();
 	UPaperFlipbookComponent* TrainInfantry;
+
+
+	/*
+		Btn Building List
+	*/
+	static FString IL_BuildingTitle;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingActionBtnsComp* BtnCompDetail;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -25,20 +31,22 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USBuildingActionBtnsComp* BtnCompTrain;
 
+	/*
+		Btn Function  Building List
+	*/
+	UFUNCTION() void OnBtnClickedDetail();
+	UFUNCTION() void OnBtnClickedUpgrade();
+	UFUNCTION() void OnBtnClickedTrain();
+	UFUNCTION() void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+
 	void initBuilding() override;
 
 	void setSprite();
 	virtual void BeginPlay() override;
-	UFUNCTION()
-	void OnClicked(UPrimitiveComponent* Target, FKey ButtonPressed);
+	
 	void showTrainSol();
 	void hideTrainSol();
 	void setBarrackInfantry();
 	void bindBtnActionFunction();
-	UFUNCTION()
-	void OnBtnClickedDetail();	
-	UFUNCTION()
-	void OnBtnClickedUpgrade();
-	UFUNCTION()
-	void OnBtnClickedTrain();
+	
 };

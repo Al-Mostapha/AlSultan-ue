@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "SBaseModel.h"
-#include "../Controller/SCBuilding.h"
+#include "../Config/SCBuilding.h"
 #include "SCityBuildingModel.generated.h"
 
 USTRUCT(BlueprintType)

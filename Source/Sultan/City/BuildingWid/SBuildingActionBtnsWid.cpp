@@ -43,11 +43,13 @@ void FBuildingActionBtn::initActionBtn() {
 	addActionBtn(EBuildingBtnAction::BBA_CITY_BUFF, "WBP_BAB_CityEffect", "common_text_014");
 	addActionBtn(EBuildingBtnAction::BBA_HEAL, "WBP_BAB_OutHeal", "common_text_065");
 	addActionBtn(EBuildingBtnAction::BBA_COLLECT_Fod, "WBP_BAB_ResCollFod", "common_text_057");
+	addActionBtn(EBuildingBtnAction::BBA_COLLECT_Wod, "WBP_BAB_ResCollWood", "common_text_057");
 	addActionBtn(EBuildingBtnAction::BBA_COLLECT_Cry, "WBP_BAB_ResCollCry", "common_text_057");
 	addActionBtn(EBuildingBtnAction::BBA_COLLECT_Irn, "WBP_BAB_ResCollIrn", "common_text_057");
 	addActionBtn(EBuildingBtnAction::BBA_COLLECT_Sil, "WBP_BAB_ResCollSil", "common_text_057");
 	addActionBtn(EBuildingBtnAction::BBA_COLLECT_Stl, "WBP_BAB_ResCollStl", "common_text_057");
 	addActionBtn(EBuildingBtnAction::BBA_RES_Acc_Fod, "WBP_BAB_ResAccFod", "common_text_018");
+	addActionBtn(EBuildingBtnAction::BBA_RES_Acc_Wod, "WBP_BAB_ResAccWod", "common_text_018");
 	addActionBtn(EBuildingBtnAction::BBA_RES_Acc_Cry, "WBP_BAB_ResAccCry", "common_text_018");
 	addActionBtn(EBuildingBtnAction::BBA_RES_Acc_Irn, "WBP_BAB_ResAccIrn", "common_text_018");
 	addActionBtn(EBuildingBtnAction::BBA_RES_Acc_Sil, "WBP_BAB_ResAccSil", "common_text_018");
