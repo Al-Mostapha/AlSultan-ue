@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "../Network/SNetBase.h"
 #include "SBase.generated.h"
 
 

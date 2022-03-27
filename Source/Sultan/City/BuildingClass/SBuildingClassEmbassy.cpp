@@ -5,17 +5,18 @@
 
 
 FString ASBuildingClassEmbassy::IL_BuildingTitle = "buildDes_name_111";
+TMap<int32, FBuildingLvlDataEmbassy> ASBuildingClassEmbassy::LvlData;
 
 ASBuildingClassEmbassy::ASBuildingClassEmbassy() {
 
 	
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassEmbassy::OnClicked);
 
-	BtnCompParliament = BtnListComp.Add(EBuildingBtnAction::BBA_INTETIOR, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompParliament")));
-	BtnCompReinforce  = BtnListComp.Add(EBuildingBtnAction::BBA_REINFORCEMENTS, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompReinforce")));
-	BtnCompHelp       = BtnListComp.Add(EBuildingBtnAction::BBA_HELP, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompHelp")));
-	BtnCompUpgrade    = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompDetail     = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompParliament = BtnListComp.Add(EBuildingBtnAction::BBA_INTETIOR, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompParliament")));
+	BtnCompReinforce  = BtnListComp.Add(EBuildingBtnAction::BBA_REINFORCEMENTS, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompReinforce")));
+	BtnCompHelp       = BtnListComp.Add(EBuildingBtnAction::BBA_HELP, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompHelp")));
+	BtnCompUpgrade    = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompDetail     = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
 
 	BtnCompDetail    ->SetupAttachment(RootComponent);
 	BtnCompUpgrade   ->SetupAttachment(RootComponent);
@@ -102,5 +103,21 @@ void ASBuildingClassEmbassy::setBuildingActionBtnList() {
 }
 
 void ASBuildingClassEmbassy::initBuilding() {
+
+}
+
+void ASBuildingClassEmbassy::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataEmbassy BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
 
 }

@@ -6,6 +6,14 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassWall.generated.h"
 
+
+
+USTRUCT() struct FBuildingLvlDataWall: public FBuildingLvlData {
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere) int32 defValue;
+	UPROPERTY(EditAnywhere) int32 capacity;
+};
+
 /**
  * 
  */
@@ -17,6 +25,7 @@ class SULTAN_API ASBuildingClassWall : public ASCityBuilding
 public:
 
 	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataWall> LvlData;
 
 	ASBuildingClassWall();
 
@@ -28,9 +37,9 @@ public:
 	UPaperSpriteComponent* ArrowTower2;
 	UPaperSpriteComponent* WallGate;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDefence;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDefence;
 
 	/*
 		Btn Function  Building List
@@ -46,4 +55,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

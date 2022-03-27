@@ -6,6 +6,13 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassOMiliTent.generated.h"
 
+USTRUCT() struct FBuildingLvlDataMiliTent : public FBuildingLvlData {
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere) int32 capacity;
+	UPROPERTY(EditAnywhere) int32 trainspeed;
+};
+
+
 /**
  * 
  */
@@ -14,11 +21,14 @@ class SULTAN_API ASBuildingClassOMiliTent : public ASCityBuilding
 {
 	GENERATED_BODY()
 public:
-	ASBuildingClassOMiliTent();
 
 	static FString IL_BuildingTitle;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
+	static TMap<int32, FBuildingLvlDataMiliTent> LvlData;
+
+
+	ASBuildingClassOMiliTent();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
 
 	UFUNCTION() void OnBtnClickedDetail();
 	UFUNCTION() void OnBtnClickedUpgrade();
@@ -30,4 +40,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

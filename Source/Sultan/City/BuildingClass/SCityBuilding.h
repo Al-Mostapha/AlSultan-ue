@@ -10,11 +10,11 @@
 #include "../Building/SBuildingTitleComp.h"
 #include "../Building/SBuildingLvlComp.h"
 #include "../Building/SBuildingNotifComp.h"
-#include "../Building/SBuildingProgComp.h"
-#include "../Building/SBuildingBtnComp.h"
-#include "../Building/SBuildingActionBtnsComp.h"
 #include "../BuildingWid/SBuildingActionBtnsWid.h"
-#include "../../Include/IncludeConfig.h"
+#include "../BuildingWid/SWid_BuildingProgBar.h"
+#include "../../Config/SCBuilding.h"
+#include "../../Config/SCArmy.h"
+#include "../../Config/SCEdu.h"
 #include "Components/WidgetComponent.h"
 #include "PaperFlipbookComponent.h"
 #include "PaperFlipbook.h"
@@ -28,12 +28,9 @@ struct FCityBuildingPos : public FTableRowBase {
 
 	GENERATED_BODY()
 public: 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString BuildingPlace;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FVector Vect;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FRotator Rot;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FString BuildingPlace;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FVector Vect;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FRotator Rot;
 };
 
 
@@ -45,16 +42,26 @@ struct FCityFixedBuildingPosAndSp: public FTableRowBase {
 
 	GENERATED_BODY()
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString BuildingPlace;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FVector Vect;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FRotator Rot;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UPaperSprite* Sprite;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FString BuildingPlace;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FVector Vect;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FRotator Rot;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) class UPaperSprite* Sprite;
 };
 
+
+USTRUCT() struct FBuildingLvlData {
+
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere) int32 kingdomLv;
+	UPROPERTY(EditAnywhere) int32 kingdomPoint;
+	UPROPERTY(EditAnywhere) TArray<FBuildingLvlUpPreCond> preCond;
+	UPROPERTY(EditAnywhere) TArray<FBuildingLvlUpCostTool> costTools;
+	UPROPERTY(EditAnywhere) FBuildingLvlUpResReq costRes;
+	UPROPERTY(EditAnywhere) int32 costTime;
+	UPROPERTY(EditAnywhere) int32 exp;
+	UPROPERTY(EditAnywhere) int32 power;
+};
 
 
 
@@ -64,43 +71,37 @@ class SULTAN_API ASCityBuilding : public APawn
 {
 	GENERATED_BODY()
 public:
+
+	static FString ProgBarClassPath;
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    UPaperSpriteComponent* Sprite;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingNameComp* BuildingName;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingTitleComp* BuildingTitle;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingLvlComp* BuildingLvl;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingNotifComp* BuildingNotif;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingProgComp* BuildingProgress;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingBtnComp* WidgitComp;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingActionBtnsComp* ActionBtnWid;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FBuildingActionBtn> BtnActionList;
-	TMap<EBuildingBtnAction, USBuildingActionBtnsComp*> BtnListComp;
-	UWidgetComponent* BtnActionPanelBg;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UPaperSpriteComponent* Sprite;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingNameComp* BuildingName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingTitleComp* BuildingTitle;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingLvlComp* BuildingLvl;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingNotifComp* BuildingNotif;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* ActionBtnWid;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* ProgressBarWid;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) TArray<FBuildingActionBtn> BtnActionList;
+	UFUNCTION() void OnSelected(UPrimitiveComponent* Target, FKey ButtonPressed);
 
+	TMap<EBuildingBtnAction, UWidgetComponent*> BtnListComp;
+	UWidgetComponent* BtnActionPanelBg;
 	FString CoolingIcon;
 	FString IL_CoolingTitle;
 	FString BuildingPlace;
+	static UDataTable* CityBuildingPos;
 
 	ASCityBuilding();
 	void setSprite(class UPaperSprite* Sprite);
-	static UDataTable* CityBuildingPos;
-	UFUNCTION()
-		void OnSelected(UPrimitiveComponent* Target, FKey ButtonPressed);
-
-
 	void addActionBtnComp();
+	void setUpgradingProgressBar();
 	virtual void initBuilding();
 	virtual void setBuildingActionBtnList();
+	virtual void setOperatingProgressBar();
+
+	static void getBuildingLvlData();
+	
 
 
 };

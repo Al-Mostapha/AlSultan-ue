@@ -6,6 +6,12 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassTargetRange.generated.h"
 
+USTRUCT() struct FBuildingLvlDataTargetRange : public FBuildingLvlData {
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere) ECArmyType unlockedSoldier;
+};
+
+
 /**
  * 
  */
@@ -16,6 +22,7 @@ class SULTAN_API ASBuildingClassTargetRange : public ASCityBuilding
 public:
 
 	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataTargetRange> LvlData;
 
 	ASBuildingClassTargetRange();
 
@@ -24,9 +31,9 @@ public:
 	UPaperFlipbookComponent* TrainArcher3;
 	UPaperFlipbookComponent* TrainArcher4;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompTrain;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompTrain;
 
 	/*
 		Btn Function  Building List
@@ -45,4 +52,6 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	void setOperatingProgressBar();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

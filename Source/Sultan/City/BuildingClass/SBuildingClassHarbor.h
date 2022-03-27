@@ -18,10 +18,10 @@ public:
 	ASBuildingClassHarbor();
 
 	/* Btn Building List */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompVipMall;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDailyReward;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDailyCard;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompMonthlyReward;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompVipMall;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDailyReward;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDailyCard;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompMonthlyReward;
 	static FString IL_BuildingTitle;
 
 	/* Btn Function  Building List */

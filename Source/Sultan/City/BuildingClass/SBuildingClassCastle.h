@@ -103,6 +103,12 @@ public:
 
 
 
+USTRUCT() struct FBuildingLvlDataCastle: public FBuildingLvlData {
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere) ECBuildingID unlockedBuild;
+};
+
+
 /**
  * 
  */
@@ -112,6 +118,7 @@ class SULTAN_API ASBuildingClassCastle : public ASCityBuilding
 	GENERATED_BODY()
 public:
 	static TMap<ECityCastleSkin, FBuildingCastleSkin> CastleSkins;
+	static TMap<int32, FBuildingLvlDataCastle> LvlData;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UPaperSpriteComponent* Comp;
 	ASBuildingClassCastle();
@@ -120,8 +127,9 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 
-	UFUNCTION()
-	void Clicked(AActor* Target, FKey ButtonPressed);
+	UFUNCTION() void Clicked(AActor* Target, FKey ButtonPressed);
+
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 
 
 };

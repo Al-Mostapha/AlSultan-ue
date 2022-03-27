@@ -4,7 +4,7 @@
 #include "SCBuilding.h"
 
 TArray<FBuildingPos> USCBuilding::BuildingPos;
-TMap<ECBuildingType, FBuildingData> USCBuilding::BuildingData;
+TMap<ECBuildingID, FBuildingData> USCBuilding::BuildingData;
 
 void USCBuilding::initBuildingPos() {
 

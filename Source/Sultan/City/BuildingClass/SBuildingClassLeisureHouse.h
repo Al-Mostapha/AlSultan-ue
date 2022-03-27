@@ -21,8 +21,8 @@ public:
 	/*
 		Btn Building List
 	*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompPyramid;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompFriend;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompPyramid;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompFriend;
 
 	/*
 		Btn Function  Building List

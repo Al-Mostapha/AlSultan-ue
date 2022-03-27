@@ -5,14 +5,15 @@
 
 
 FString ASBuildingClassOHospital::IL_BuildingTitle = "buildDes_name_206";
+TMap<int32, FBuildingLvlDataHospital> ASBuildingClassOHospital::LvlData;
 
 ASBuildingClassOHospital::ASBuildingClassOHospital() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassOHospital::OnClicked);
 
-	BtnCompHeal    = BtnListComp.Add(EBuildingBtnAction::BBA_HEAL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompHeal")));
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompHeal    = BtnListComp.Add(EBuildingBtnAction::BBA_HEAL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompHeal")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
 
 	BtnCompHeal->SetupAttachment(RootComponent);
 	BtnCompUpgrade->SetupAttachment(RootComponent);
@@ -79,3 +80,19 @@ void ASBuildingClassOHospital::setBuildingActionBtnList() {
 }
 
 void ASBuildingClassOHospital::initBuilding() {}
+
+void ASBuildingClassOHospital::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataHospital BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
+
+}

@@ -6,6 +6,13 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassBarrack.generated.h"
 
+
+
+USTRUCT() struct FBuildingLvlDataBarrack : public FBuildingLvlData {
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere) ECArmyType unlockedSoldier;
+};
+
 /**
  * 
  */
@@ -24,12 +31,10 @@ public:
 		Btn Building List
 	*/
 	static FString IL_BuildingTitle;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USBuildingActionBtnsComp* BtnCompTrain;
+    static TMap<int32, FBuildingLvlDataBarrack> LvlData;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompTrain;
 
 	/*
 		Btn Function  Building List
@@ -43,10 +48,11 @@ public:
 
 	void setSprite();
 	virtual void BeginPlay() override;
-	
 	void showTrainSol();
 	void hideTrainSol();
 	void setBarrackInfantry();
 	void bindBtnActionFunction();
+	void setOperatingProgressBar() override;
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 	
 };

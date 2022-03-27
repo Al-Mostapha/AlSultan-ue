@@ -6,6 +6,13 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassInstitute.generated.h"
 
+
+USTRUCT() struct FBuildingLvlDataInstitute : public FBuildingLvlData {
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere) ECEduType unlockedTechnology;
+};
+
+
 /**
  * 
  */
@@ -16,12 +23,14 @@ class SULTAN_API ASBuildingClassInstitute : public ASCityBuilding
 public:
 
 	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataInstitute> LvlData;
+
 	ASBuildingClassInstitute();
 
 	/* Btn Building List */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompResearch;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompResearch;
 
 
 	/* Btn Function  Building List */
@@ -36,4 +45,7 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	void setOperatingProgressBar();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
+
 };

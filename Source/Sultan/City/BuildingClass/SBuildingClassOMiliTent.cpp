@@ -4,13 +4,14 @@
 #include "SBuildingClassOMiliTent.h"
 
 FString ASBuildingClassOMiliTent::IL_BuildingTitle = "buildDes_name_201";
+TMap<int32, FBuildingLvlDataMiliTent> ASBuildingClassOMiliTent::LvlData;
 
 ASBuildingClassOMiliTent::ASBuildingClassOMiliTent() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassOMiliTent::OnClicked);
 
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
 
 	BtnCompUpgrade->SetupAttachment(RootComponent);
 	BtnCompDetail->SetupAttachment(RootComponent);
@@ -66,3 +67,19 @@ void ASBuildingClassOMiliTent::setBuildingActionBtnList() {
 }
 
 void ASBuildingClassOMiliTent::initBuilding() {}
+
+void ASBuildingClassOMiliTent::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataMiliTent BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
+
+}

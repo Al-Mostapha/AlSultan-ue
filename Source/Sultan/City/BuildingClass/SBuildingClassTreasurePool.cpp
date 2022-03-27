@@ -4,15 +4,16 @@
 #include "SBuildingClassTreasurePool.h"
 
 FString ASBuildingClassTreasurePool::IL_BuildingTitle = "buildDes_name_111";
+TMap<int32, FBuildingLvlDataTreasurePool> ASBuildingClassTreasurePool::LvlData;
 
 ASBuildingClassTreasurePool::ASBuildingClassTreasurePool() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassTreasurePool::OnClicked);
 
-	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompTreaHunt = BtnListComp.Add(EBuildingBtnAction::BBA_WISH, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompTreaHunt")));
-	BtnCompEndTrea = BtnListComp.Add(EBuildingBtnAction::BBA_ENDLESSTREASURE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompEndTrea")));
+	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompTreaHunt = BtnListComp.Add(EBuildingBtnAction::BBA_WISH, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompTreaHunt")));
+	BtnCompEndTrea = BtnListComp.Add(EBuildingBtnAction::BBA_ENDLESSTREASURE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompEndTrea")));
 
 	BtnCompDetail->SetupAttachment(RootComponent);
 	BtnCompUpgrade->SetupAttachment(RootComponent);
@@ -95,5 +96,21 @@ void ASBuildingClassTreasurePool::setBuildingActionBtnList() {
 }
 
 void ASBuildingClassTreasurePool::initBuilding() {
+
+}
+
+void ASBuildingClassTreasurePool::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataTreasurePool BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
 
 }

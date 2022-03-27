@@ -6,6 +6,11 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassOHospital.generated.h"
 
+USTRUCT() struct FBuildingLvlDataHospital : public FBuildingLvlData {
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere) int32 capacity;
+};
+
 /**
  * 
  */
@@ -14,12 +19,15 @@ class SULTAN_API ASBuildingClassOHospital : public ASCityBuilding
 {
 	GENERATED_BODY()
 public:
-	ASBuildingClassOHospital();
 
 	static FString IL_BuildingTitle;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompHeal;
+	static TMap<int32, FBuildingLvlDataHospital> LvlData;
+
+	ASBuildingClassOHospital();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompHeal;
 
 	UFUNCTION() void OnBtnClickedHeal();
 	UFUNCTION() void OnBtnClickedDetail();
@@ -32,4 +40,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

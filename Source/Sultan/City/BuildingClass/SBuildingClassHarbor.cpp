@@ -14,10 +14,10 @@ ASBuildingClassHarbor::ASBuildingClassHarbor() {
 
 
 
-	BtnCompVipMall = BtnListComp.Add(EBuildingBtnAction::BBA_PREMIUM_VIP_MALL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompVipMall")));
-	BtnCompDailyReward = BtnListComp.Add(EBuildingBtnAction::BBA_DAILYREWARD, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDailyReward")));
-	BtnCompDailyCard = BtnListComp.Add(EBuildingBtnAction::BBA_DAILYSIGN, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDailyCard")));
-	BtnCompMonthlyReward = BtnListComp.Add(EBuildingBtnAction::BBA_MONTH_GIFT, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompMonthlyReward")));
+	BtnCompVipMall = BtnListComp.Add(EBuildingBtnAction::BBA_PREMIUM_VIP_MALL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompVipMall")));
+	BtnCompDailyReward = BtnListComp.Add(EBuildingBtnAction::BBA_DAILYREWARD, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDailyReward")));
+	BtnCompDailyCard = BtnListComp.Add(EBuildingBtnAction::BBA_DAILYSIGN, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDailyCard")));
+	BtnCompMonthlyReward = BtnListComp.Add(EBuildingBtnAction::BBA_MONTH_GIFT, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompMonthlyReward")));
 
 	BtnCompVipMall->SetupAttachment(RootComponent);
 	BtnCompDailyReward->SetupAttachment(RootComponent);
@@ -102,4 +102,3 @@ void ASBuildingClassHarbor::setBuildingActionBtnList() {
 void ASBuildingClassHarbor::initBuilding() {
 
 }
-

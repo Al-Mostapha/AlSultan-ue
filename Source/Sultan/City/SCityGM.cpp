@@ -16,8 +16,9 @@
 #include "BuildingClass/SBuildingClassCastle.h"
 #include "BuildingClass/SBuildingClassStable.h"
 #include "BuildingWid/SBuildingActionBtnsWid.h"
+#include "../SGameBoot.h"
 #include "../World/SWorldFloor.h"
-#include "../Network/SNetBase.h"
+
 
 class UCameraComponent;
 void ASCityGM::initCamera() {
@@ -34,6 +35,8 @@ ASCityGM::ASCityGM() {
 void ASCityGM::StartPlay() {
 
 	Super::StartPlay();
+
+	USGameBoot::getBuildingLvlData();
 
 	FBuildingActionBtn::initActionBtn();
 	ASBuildingClassCastle::initCastleSkin();
@@ -145,9 +148,22 @@ void ASCityGM::buildCityBuilding() {
 			GLog->Log("----------------------- ERROR Buildig Type NOT FOUND IN MAP -> " + FString::FromInt(static_cast<uint8>(Building.buildingType))  + "  === " + OneBuilding.BuildingPlace);
 			continue;
 		}
+		if (!GetWorld()) {
+			GLog->Log("-----------------------hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+			return;
+		}
+			
 
 		FBuildingData BuildingData = USCBuilding::BuildingData[Building.buildingType];
-		OneCityBuilding =  GetWorld()->SpawnActor<ASCityBuilding>(BuildingData.BuildingClass, OneBuilding.Vect, OneBuilding.Rot);
+		if (!BuildingData.BuildingClass) {
+			GLog->Log("-----------------------hhhhhhhhhhffffffffffffffffffffffffffffhhhhhhhhhhhhhhhhhh");
+			return;
+		}
+		OneCityBuilding =  GetWorld()->SpawnActor<ASCityBuilding>(
+			BuildingData.BuildingClass,
+			OneBuilding.Vect,
+			OneBuilding.Rot);
+
 		if (!OneCityBuilding) {
 			GLog->Log("----------------------- ERROR Buildig Type NOT FOUND IN MAP At Place " + OneBuilding.BuildingPlace + "---" +  FString::FromInt(static_cast<uint8>(Building.buildingType)));
 			continue;

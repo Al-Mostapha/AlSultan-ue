@@ -5,16 +5,17 @@
 
 
 FString ASBuildingClassOSawMill::IL_BuildingTitle = "buildDes_name_202";
+TMap<int32, FBuildingLvlDataSawMill> ASBuildingClassOSawMill::LvlData;
 
 ASBuildingClassOSawMill::ASBuildingClassOSawMill() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassOSawMill::OnClicked);
 
-	BtnCompCollect = BtnListComp.Add(EBuildingBtnAction::BBA_COLLECT_Wod, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompCollect")));
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
-	BtnCompGoldAcce = BtnListComp.Add(EBuildingBtnAction::BBA_BOOST, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompGoldAcce")));
-	BtnCompItemAcce = BtnListComp.Add(EBuildingBtnAction::BBA_RES_Acc_Wod, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompItemAcce")));
+	BtnCompCollect = BtnListComp.Add(EBuildingBtnAction::BBA_COLLECT_Wod, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompCollect")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
+	BtnCompGoldAcce = BtnListComp.Add(EBuildingBtnAction::BBA_BOOST, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompGoldAcce")));
+	BtnCompItemAcce = BtnListComp.Add(EBuildingBtnAction::BBA_RES_Acc_Wod, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompItemAcce")));
 
 	BtnCompCollect->SetupAttachment(RootComponent);
 	BtnCompUpgrade->SetupAttachment(RootComponent);
@@ -96,3 +97,19 @@ void ASBuildingClassOSawMill::setBuildingActionBtnList() {
 }
 
 void ASBuildingClassOSawMill::initBuilding() {}
+
+void ASBuildingClassOSawMill::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataSawMill BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
+
+}

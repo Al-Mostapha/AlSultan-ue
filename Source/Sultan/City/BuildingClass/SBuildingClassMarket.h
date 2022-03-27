@@ -6,6 +6,14 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassMarket.generated.h"
 
+
+USTRUCT() struct FBuildingLvlDataMarket : public FBuildingLvlData {
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere) int32 capacity;
+		UPROPERTY(EditAnywhere) int32 taxRate;
+};
+
+
 /**
  * 
  */
@@ -16,15 +24,17 @@ class SULTAN_API ASBuildingClassMarket : public ASCityBuilding
 public:
 
 	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataMarket> LvlData;
+
 	ASBuildingClassMarket();
 
 	/*
 		Btn List
 	*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompTrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompAuction;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompTrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompAuction;
 
 	UFUNCTION() void OnBtnClickedDetail();
 	UFUNCTION() void OnBtnClickedUpgrade();
@@ -39,4 +49,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

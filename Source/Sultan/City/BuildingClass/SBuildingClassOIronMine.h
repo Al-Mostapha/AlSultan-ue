@@ -6,6 +6,14 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassOIronMine.generated.h"
 
+USTRUCT() struct FBuildingLvlDataIronMine : public FBuildingLvlData {
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere) int32 capacity;
+		UPROPERTY(EditAnywhere) int32 output;
+		UPROPERTY(EditAnywhere) int32 addOutputCostGold;
+};
+
+
 /**
  * 
  */
@@ -15,14 +23,16 @@ class SULTAN_API ASBuildingClassOIronMine : public ASCityBuilding
 	GENERATED_BODY()
 public:
 
+	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataIronMine> LvlData;
+
 	ASBuildingClassOIronMine();
 
-	static FString IL_BuildingTitle;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompItemAcce;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompGoldAcce;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompCollect;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompItemAcce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompGoldAcce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompCollect;
 
 	UFUNCTION() void OnBtnClickedItemAcce();
 	UFUNCTION() void OnBtnClickedGoldAcce();
@@ -37,4 +47,6 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
+
 };

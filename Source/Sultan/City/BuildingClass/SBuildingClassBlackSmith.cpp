@@ -5,15 +5,16 @@
 
 
 FString ASBuildingClassBlackSmith::IL_BuildingTitle = "buildDes_name_115";
+TMap<int32, FBuildingLvlDataBlackSmith> ASBuildingClassBlackSmith::LvlData;
 
 ASBuildingClassBlackSmith::ASBuildingClassBlackSmith() {
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassBlackSmith::OnClicked);
 
-	BtnCompArtifacts = BtnListComp.Add(EBuildingBtnAction::BBA_ARTIFACT, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompArtifacts")));
-	BtnCompStorage = BtnListComp.Add(EBuildingBtnAction::BBA_STORAGEBOX, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompStorage")));
-	BtnCompFroge = BtnListComp.Add(EBuildingBtnAction::BBA_FORGING, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompFroge")));
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompArtifacts = BtnListComp.Add(EBuildingBtnAction::BBA_ARTIFACT, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompArtifacts")));
+	BtnCompStorage = BtnListComp.Add(EBuildingBtnAction::BBA_STORAGEBOX, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompStorage")));
+	BtnCompFroge = BtnListComp.Add(EBuildingBtnAction::BBA_FORGING, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompFroge")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
 
 	BtnCompStorage->SetupAttachment(RootComponent);
 	BtnCompArtifacts->SetupAttachment(RootComponent);
@@ -40,6 +41,8 @@ void ASBuildingClassBlackSmith::BeginPlay() {
 	setSprite();
 	addActionBtnComp();
 	bindBtnActionFunction();
+	setOperatingProgressBar();
+
 }
 
 
@@ -109,4 +112,42 @@ void ASBuildingClassBlackSmith::initBuilding() {
 
 }
 
+void ASBuildingClassBlackSmith::setOperatingProgressBar() {
 
+
+	static TSubclassOf<USWid_BuildingProgBar> ProgBar = LoadObject<UClass>(nullptr, *ProgBarClassPath);
+
+	ProgressBarWid->SetWidgetClass(ProgBar);
+	ProgressBarWid->SetDrawSize(FVector2D(260.0, 80.0));
+	USWid_BuildingProgBar* Widget = Cast<USWid_BuildingProgBar>(ProgressBarWid->GetWidget());
+	if (!Widget)
+		return;
+	static UTexture2D* IconSprite = LoadObject<UTexture2D>(nullptr, TEXT("Texture2D'/Game/Icon/BuildingProgress/icon_main_build_05.icon_main_build_05'"));
+	if (IconSprite)
+	{
+		FSlateBrush Brush;
+		Brush.SetResourceObject(IconSprite);
+		Brush.ImageSize = FVector2D(IconSprite->GetSizeX(), IconSprite->GetSizeY());
+		Widget->OperationIcon->SetBrush(Brush);
+	}
+	else {
+
+		GLog->Log("((((((((((((((((((((()))))))))))))))))))))))))");
+	}
+}
+
+void ASBuildingClassBlackSmith::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataBlackSmith BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
+
+}

@@ -7,6 +7,7 @@
 #include "Components/InputComponent.h"
 
 UDataTable* ASCityBuilding::CityBuildingPos = NULL;
+FString ASCityBuilding::ProgBarClassPath = "/Game/City/CityOld/BuildingWidgets/ProBar/WBP_BPB_Upgrade.WBP_BPB_Upgrade_C";
 
 ASCityBuilding::ASCityBuilding() {
 
@@ -21,10 +22,15 @@ ASCityBuilding::ASCityBuilding() {
 	BuildingNotif->SetupAttachment(RootComponent);
 	BuildingTitle = CreateDefaultSubobject<USBuildingTitleComp>(TEXT("BuildingTitle"));
 	BuildingTitle->SetupAttachment(RootComponent);
-	ActionBtnWid = CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BuildingActionWid"));
+	ActionBtnWid = CreateDefaultSubobject<UWidgetComponent>(TEXT("BuildingActionWid"));
 	ActionBtnWid->SetupAttachment(RootComponent);
 	BtnActionPanelBg = CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnActionPanelBg"));
-	BtnActionPanelBg->SetRelativeLocation(FVector(0, -1000, -166));
+	ProgressBarWid  = CreateDefaultSubobject<UWidgetComponent>(TEXT("ProgressBarWid"));
+	ProgressBarWid->SetRelativeLocation(FVector(0, 10, -166));
+	ProgressBarWid->SetRelativeRotation(FRotator(0, 90, 0));
+	ProgressBarWid->SetupAttachment(RootComponent);
+
+	BtnActionPanelBg->SetRelativeLocation(FVector(-1000, 10, -166));
 	BtnActionPanelBg->SetRelativeRotation(FRotator(0, 90, 0));
 	BtnActionPanelBg->SetupAttachment(RootComponent);
 }
@@ -34,6 +40,7 @@ void ASCityBuilding::BeginPlay()
 	Super::BeginPlay();
 	static TSubclassOf<USBuildingActionBtnsWid> ActionWid = LoadObject<UClass>(nullptr, TEXT("/Game/City/CityOld/BuildingWidgets/BuildingActionBtns/BP_BAB_Castle.BP_BAB_Castle_C"));
 	BtnActionPanelBg->SetWidgetClass(ActionWid);
+	setUpgradingProgressBar();
 }
 
 void ASCityBuilding::setSprite(class UPaperSprite* PSprite) {
@@ -43,7 +50,7 @@ void ASCityBuilding::setSprite(class UPaperSprite* PSprite) {
 	//OnReleased.AddDynamic(this, &ASCityBuilding::OnSelected);
 	//OnInputTouchEnd.AddDynamic(this, &ASCityBuilding::OnSelected);
 	//OnClicked.AddDynamic(this, &ASCityBuilding::OnSelected);
-
+	 
 }
 
 void ASCityBuilding::OnSelected(UPrimitiveComponent* Target, FKey ButtonPressed) {
@@ -95,5 +102,23 @@ void ASCityBuilding::addActionBtnComp() {
 		Btn.Value->SetDrawSize(FVector2D(100, 120));
 		index++;
 	}
+
+}
+
+void ASCityBuilding::setUpgradingProgressBar() {
+
+	static TSubclassOf<USWid_BuildingProgBar> ProgBar = LoadObject<UClass>(nullptr, *ProgBarClassPath);
+	ProgressBarWid->SetWidgetClass(ProgBar);
+	ProgressBarWid->SetDrawSize(FVector2D(260.0, 80.0));
+
+}
+
+void ASCityBuilding::setOperatingProgressBar() {
+
+
+}
+
+
+void ASCityBuilding::getBuildingLvlData() {
 
 }

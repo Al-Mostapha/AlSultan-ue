@@ -4,6 +4,7 @@
 #include "SBuildingClassDrill.h"
 
 FString ASBuildingClassDrill::IL_BuildingTitle = "buildDes_name_121";
+TMap<int32, FBuildingLvlDataDrill> ASBuildingClassDrill::LvlData;
 
 ASBuildingClassDrill::ASBuildingClassDrill() {
 
@@ -11,9 +12,9 @@ ASBuildingClassDrill::ASBuildingClassDrill() {
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassDrill::OnClicked);
 	
 	
-	BtnCompArena   = BtnListComp.Add(EBuildingBtnAction::BBA_ARENA, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompArena")));
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompArena   = BtnListComp.Add(EBuildingBtnAction::BBA_ARENA, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompArena")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
 
 
 
@@ -82,5 +83,22 @@ void ASBuildingClassDrill::setBuildingActionBtnList() {
 
 }
 void ASBuildingClassDrill::initBuilding() {
+
+}
+
+
+void ASBuildingClassDrill::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataDrill BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
 
 }

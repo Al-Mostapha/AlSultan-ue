@@ -6,6 +6,14 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassEmbassy.generated.h"
 
+
+USTRUCT() struct FBuildingLvlDataEmbassy : public FBuildingLvlData {
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere) int32 helpCount;
+		UPROPERTY(EditAnywhere) int32 reduceTime;
+		UPROPERTY(EditAnywhere) int32 reinforcements;
+};
+
 /**
  * 
  */
@@ -15,12 +23,15 @@ class SULTAN_API ASBuildingClassEmbassy : public ASCityBuilding
 	GENERATED_BODY()
 public:
 
+	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataEmbassy> LvlData;
+
 	/* Btn Building List */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompHelp;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompReinforce;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompParliament;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompHelp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompReinforce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompParliament;
 
 
 	/* Btn Function  Building List */
@@ -30,7 +41,7 @@ public:
 	UFUNCTION() void OnBtnClickedReinforce();
 	UFUNCTION() void OnBtnClickedParliament();
 
-	static FString IL_BuildingTitle;
+	
 	ASBuildingClassEmbassy();
 
 	void setSprite();
@@ -40,4 +51,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

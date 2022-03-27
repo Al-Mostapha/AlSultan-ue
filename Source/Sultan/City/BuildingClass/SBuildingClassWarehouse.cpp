@@ -4,14 +4,15 @@
 #include "SBuildingClassWarehouse.h"
 
 FString ASBuildingClassWarehouse::IL_BuildingTitle = "buildDes_name_105";
+TMap<int32, FBuildingLvlDataWarehouse> ASBuildingClassWarehouse::LvlData;
 
 ASBuildingClassWarehouse::ASBuildingClassWarehouse() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassWarehouse::OnClicked);
 
-	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompAlnTreasure = BtnListComp.Add(EBuildingBtnAction::BBA_TRAIN, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompAlnTreasure")));
+	BtnCompDetail = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompAlnTreasure = BtnListComp.Add(EBuildingBtnAction::BBA_TRAIN, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompAlnTreasure")));
 
 	BtnCompDetail->SetupAttachment(RootComponent);
 	BtnCompUpgrade->SetupAttachment(RootComponent);
@@ -89,5 +90,21 @@ void ASBuildingClassWarehouse::setBuildingActionBtnList() {
 
 
 void ASBuildingClassWarehouse::initBuilding() {
+
+}
+
+void ASBuildingClassWarehouse::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataWarehouse BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
 
 }

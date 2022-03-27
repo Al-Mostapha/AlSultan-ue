@@ -10,8 +10,8 @@ ASBuildingClassLeisureHouse::ASBuildingClassLeisureHouse() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassLeisureHouse::OnClicked);
 
-	BtnCompPyramid = BtnListComp.Add(EBuildingBtnAction::BBA_PYRAMID, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompPyramid")));
-	BtnCompFriend  = BtnListComp.Add(EBuildingBtnAction::BBA_FRIEND,  CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompFriend")));
+	BtnCompPyramid = BtnListComp.Add(EBuildingBtnAction::BBA_PYRAMID, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompPyramid")));
+	BtnCompFriend  = BtnListComp.Add(EBuildingBtnAction::BBA_FRIEND,  CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompFriend")));
 
 	BtnCompPyramid->SetupAttachment(RootComponent);
 	BtnCompFriend->SetupAttachment(RootComponent);

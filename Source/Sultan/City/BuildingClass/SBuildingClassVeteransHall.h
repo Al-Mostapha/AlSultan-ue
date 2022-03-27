@@ -6,6 +6,8 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassVeteransHall.generated.h"
 
+
+
 /**
  * 
  */

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/DataTable.h"
+#include "../Base/SBase.h"
 #include "SCBuilding.generated.h"
 
 
@@ -45,7 +46,7 @@ enum class ECBuildingPlaceType : uint8 {
 
 
 UENUM()
-enum class ECBuildingType : uint8 {
+enum class ECBuildingID : uint8 {
 	BUILDING_NONE = 0,
 	CASTLE = 1,
 	WALLS = 2,
@@ -86,20 +87,13 @@ struct FBuildingData : public FTableRowBase {
 
 	GENERATED_BODY()
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString IL_Title;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString IL_Desc;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		ECBuildingType buildingType;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		ECBuildingPlaceType buildingPlaceType;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		ECBuildingCityPlace buildingCityPlace;
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-		TSubclassOf<class ASCityBuilding> BuildingClass;
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-		TSubclassOf<class UUserWidget> BuildingProg;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FString IL_Title;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FString IL_Desc;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) ECBuildingID buildingType;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) ECBuildingPlaceType buildingPlaceType;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) ECBuildingCityPlace buildingCityPlace;
+	UPROPERTY(EditDefaultsOnly) TSubclassOf<class ASCityBuilding> BuildingClass;
+	UPROPERTY(EditDefaultsOnly) TSubclassOf<class UUserWidget> BuildingProg;
 
 };
 
@@ -109,17 +103,49 @@ struct FBuildingPos : public FTableRowBase {
 
 	GENERATED_BODY()
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString BuildingPlace;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		ECBuildingCityPlace BuildingCityPlace;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		ECBuildingPlaceType BuildingPlaceType;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FVector Vect;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FRotator Rot;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FString BuildingPlace;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) ECBuildingCityPlace BuildingCityPlace;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) ECBuildingPlaceType BuildingPlaceType;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FVector Vect;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FRotator Rot;
 };
+
+
+USTRUCT(BlueprintType)
+struct FBuildingLvlUpResReq {
+
+
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Grain;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Lumber;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Iron;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Silver;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Crysrtal;
+};
+
+USTRUCT(BlueprintType)
+struct FBuildingLvlUpPreCond {
+
+
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) ECBuildingID buildingType;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 buildingLvl;
+};
+
+
+USTRUCT(BlueprintType)
+struct FBuildingLvlUpCostTool {
+
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 idTool;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 amount;
+};
+
+
+
 
 /**
  * 
@@ -130,7 +156,7 @@ class SULTAN_API USCBuilding : public UObject
 	GENERATED_BODY()
 public:
 	static TArray<FBuildingPos> BuildingPos;
-	static TMap<ECBuildingType, FBuildingData> BuildingData;
+	static TMap<ECBuildingID, FBuildingData> BuildingData;
 	static void initBuildingPos();
 	static void initBuildingData();
 };

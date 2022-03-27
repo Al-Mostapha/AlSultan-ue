@@ -4,14 +4,15 @@
 #include "SBuildingClassWatchTower.h"
 
 FString ASBuildingClassWatchTower::IL_BuildingTitle = "buildDes_name_111";
+TMap<int32, FBuildingLvlDataWatchTower> ASBuildingClassWatchTower::LvlData;
 
 ASBuildingClassWatchTower::ASBuildingClassWatchTower() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassWatchTower::OnClicked);
 
-	BtnCompDetail   = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
-	BtnCompUpgrade  = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompMilitary = BtnListComp.Add(EBuildingBtnAction::BBA_MILITARYINFO, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompMilitary")));
+	BtnCompDetail   = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
+	BtnCompUpgrade  = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompMilitary = BtnListComp.Add(EBuildingBtnAction::BBA_MILITARYINFO, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompMilitary")));
 
 	BtnCompDetail  ->SetupAttachment(RootComponent);
 	BtnCompUpgrade ->SetupAttachment(RootComponent);
@@ -83,5 +84,21 @@ void ASBuildingClassWatchTower::setBuildingActionBtnList() {
 }
 
 void ASBuildingClassWatchTower::initBuilding() {
+
+}
+
+void ASBuildingClassWatchTower::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataWatchTower BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
 
 }

@@ -6,6 +6,16 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassFortress.generated.h"
 
+
+
+USTRUCT() struct FBuildingLvlDataFortress : public FBuildingLvlData {
+
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere) ECArmyType unlockedSoldier;
+};
+
+
+
 /**
  * 
  */
@@ -15,10 +25,13 @@ class SULTAN_API ASBuildingClassFortress : public ASCityBuilding
 	GENERATED_BODY()
 public:
 
+	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataFortress> LvlData;
+
 	/* Btn Building List */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompBuildTraps;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompBuildTraps;
 
 
 	/* Btn Function  Building List */
@@ -26,9 +39,6 @@ public:
 	UFUNCTION() void OnBtnClickedUpgrade();
 	UFUNCTION() void OnBtnClickedBuildTraps();
 
-
-
-	static FString IL_BuildingTitle;
 	ASBuildingClassFortress();
 
 	void setSprite();
@@ -38,4 +48,6 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	void setOperatingProgressBar();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

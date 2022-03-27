@@ -6,6 +6,13 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassDrill.generated.h"
 
+
+
+USTRUCT() struct FBuildingLvlDataDrill : public FBuildingLvlData {
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere) int32 capacity;
+};
+
 /**
  * 
  */
@@ -14,18 +21,20 @@ class SULTAN_API ASBuildingClassDrill : public ASCityBuilding
 {
 	GENERATED_BODY()
 public:
+	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataDrill> LvlData;
 
 	/* Btn Building List */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompArena;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompArena;
 
 	/* Btn Function  Building List */
 	UFUNCTION() void OnBtnClickedDetail();
 	UFUNCTION() void OnBtnClickedUpgrade();
 	UFUNCTION() void OnBtnClickedArena();
 
-	static FString IL_BuildingTitle;
+	
 	ASBuildingClassDrill();
 
 	void setSprite();
@@ -35,4 +44,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

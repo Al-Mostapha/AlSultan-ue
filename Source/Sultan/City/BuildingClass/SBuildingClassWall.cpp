@@ -6,6 +6,7 @@
 
 
 FString ASBuildingClassWall::IL_BuildingTitle = "buildDes_name_102";
+TMap<int32, FBuildingLvlDataWall> ASBuildingClassWall::LvlData;
 
 ASBuildingClassWall::ASBuildingClassWall() {
 
@@ -20,9 +21,9 @@ ASBuildingClassWall::ASBuildingClassWall() {
 	ArrowTower2 = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("ArrowTower2"));
 	WallGate    = Sprite;
 
-	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompDefence = BtnListComp.Add(EBuildingBtnAction::BBA_DEFEND, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDefence")));
+	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompDefence = BtnListComp.Add(EBuildingBtnAction::BBA_DEFEND, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDefence")));
 
 	BtnCompDetail ->SetupAttachment(RootComponent);
 	BtnCompUpgrade->SetupAttachment(RootComponent);
@@ -121,7 +122,20 @@ void ASBuildingClassWall::setBuildingActionBtnList() {
 
 }
 
-
-
-
 void ASBuildingClassWall::initBuilding() {}
+
+void ASBuildingClassWall::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataWall BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
+
+}

@@ -4,15 +4,16 @@
 #include "SBuildingClassBarrack.h"
 
 FString ASBuildingClassBarrack::IL_BuildingTitle = "buildDes_name_118";
+TMap<int32, FBuildingLvlDataBarrack> ASBuildingClassBarrack::LvlData;
 
 ASBuildingClassBarrack::ASBuildingClassBarrack() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassBarrack::OnClicked);
-	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompDetail  = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
 	BtnCompDetail->SetupAttachment(RootComponent);
-	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE,CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
+	BtnCompUpgrade = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE,CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
 	BtnCompUpgrade->SetupAttachment(RootComponent);
-	BtnCompTrain   = BtnListComp.Add(EBuildingBtnAction::BBA_TRAIN,  CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompTrain")));
+	BtnCompTrain   = BtnListComp.Add(EBuildingBtnAction::BBA_TRAIN,  CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompTrain")));
 	BtnCompTrain->SetupAttachment(RootComponent);
 	TrainInfantry  = CreateDefaultSubobject<UPaperFlipbookComponent>(TEXT("TrainInfantry"));
 	TrainInfantry->SetupAttachment(RootComponent);
@@ -62,6 +63,7 @@ void ASBuildingClassBarrack::BeginPlay() {
 	setSprite();
 	addActionBtnComp();
 	bindBtnActionFunction();
+	setOperatingProgressBar();
 
 }
 
@@ -110,3 +112,47 @@ void ASBuildingClassBarrack::OnBtnClickedTrain() {
 }
 
 void ASBuildingClassBarrack::initBuilding() {}
+
+
+void ASBuildingClassBarrack::setOperatingProgressBar() {
+
+
+	static TSubclassOf<USWid_BuildingProgBar> ProgBar = LoadObject<UClass>(nullptr, *ProgBarClassPath);
+
+	ProgressBarWid->SetWidgetClass(ProgBar);
+	ProgressBarWid->SetDrawSize(FVector2D(260.0, 80.0));
+	USWid_BuildingProgBar* Widget = Cast<USWid_BuildingProgBar>(ProgressBarWid->GetWidget());
+	if (!Widget)
+		return;
+	static UTexture2D* IconSprite = LoadObject<UTexture2D>(nullptr, TEXT("Texture2D'/Game/Icon/BuildingProgress/icon_main_build_02.icon_main_build_02'"));
+	if (IconSprite)
+	{
+		FSlateBrush Brush;
+		Brush.SetResourceObject(IconSprite);
+		Brush.ImageSize = FVector2D(IconSprite->GetSizeX(), IconSprite->GetSizeY());
+		Widget->OperationIcon->SetBrush(Brush);
+	}
+	else {
+	
+		GLog->Log("((((((((((((((((((((()))))))))))))))))))))))))");
+	}
+}
+
+
+void ASBuildingClassBarrack::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull()) 
+			continue;
+		
+		FBuildingLvlDataBarrack BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+		
+
+	}
+
+}

@@ -6,6 +6,14 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassHallOfWar.generated.h"
 
+
+
+
+USTRUCT() struct FBuildingLvlDataHallOfWar : public FBuildingLvlData {
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere) int32 capacity;
+};
+
 /**
  * 
  */
@@ -15,13 +23,15 @@ class SULTAN_API ASBuildingClassHallOfWar : public ASCityBuilding
 	GENERATED_BODY()
 public:
 
-	/* Btn Building List */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompAlncWar;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompMedalExchange;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompCounterAttack;
+	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataHallOfWar> LvlData;
 
+	/* Btn Building List */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompAlncWar;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompMedalExchange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompCounterAttack;
 
 	/* Btn Function  Building List */
 	UFUNCTION() void OnBtnClickedDetail();
@@ -30,7 +40,7 @@ public:
 	UFUNCTION() void OnBtnClickedMedalExchange();
 	UFUNCTION() void OnBtnClickedCounterAttack();
 
-	static FString IL_BuildingTitle;
+	
 	ASBuildingClassHallOfWar();
 
 	void setSprite();
@@ -40,4 +50,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

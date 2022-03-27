@@ -6,9 +6,13 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassWarehouse.generated.h"
 
-/**
- * 
- */
+USTRUCT() struct FBuildingLvlDataWarehouse : public FBuildingLvlData {
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere) int32 defValue;
+	UPROPERTY(EditAnywhere) FBuildingLvlUpResReq capacity;
+};
+
+
 UCLASS()
 class SULTAN_API ASBuildingClassWarehouse : public ASCityBuilding
 {
@@ -16,12 +20,13 @@ class SULTAN_API ASBuildingClassWarehouse : public ASCityBuilding
 public:
 
 	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataWarehouse> LvlData;
+
 	ASBuildingClassWarehouse();
 
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompAlnTreasure;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompAlnTreasure;
 
 	/*
 		Btn Function  Building List
@@ -37,4 +42,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

@@ -13,7 +13,7 @@ struct FCityBuildingUnitDS {
 
 	GENERATED_BODY()
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) int32 buildingLvl;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere) ECBuildingType buildingType;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) ECBuildingID buildingType;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere) bool  buildingLocked;
 
 };

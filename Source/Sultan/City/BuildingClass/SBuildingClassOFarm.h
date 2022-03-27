@@ -6,6 +6,15 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassOFarm.generated.h"
 
+
+USTRUCT() struct FBuildingLvlDataFarm : public FBuildingLvlData {
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere) int32 capacity;
+		UPROPERTY(EditAnywhere) int32 output;
+		UPROPERTY(EditAnywhere) int32 addOutputCostGold;	
+};
+
+
 /**
  * 
  */
@@ -15,14 +24,16 @@ class SULTAN_API ASBuildingClassOFarm : public ASCityBuilding
 	GENERATED_BODY()
 public:
 
-	ASBuildingClassOFarm();
-
 	static FString IL_BuildingTitle;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompItemAcce;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompGoldAcce;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompCollect;
+	static TMap<int32, FBuildingLvlDataFarm> LvlData;
+
+	ASBuildingClassOFarm();
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompItemAcce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompGoldAcce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompCollect;
 
 	UFUNCTION() void OnBtnClickedItemAcce();
 	UFUNCTION() void OnBtnClickedGoldAcce();
@@ -37,5 +48,5 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
-
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

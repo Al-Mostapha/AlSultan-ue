@@ -5,7 +5,7 @@
 
 
 TMap<ECityCastleSkin, FBuildingCastleSkin> ASBuildingClassCastle::CastleSkins;
-
+TMap<int32, FBuildingLvlDataCastle> ASBuildingClassCastle::LvlData;
 
 
 ASBuildingClassCastle::ASBuildingClassCastle() {
@@ -113,5 +113,21 @@ void ASBuildingClassCastle::Clicked(AActor* Target, FKey ButtonPressed) {
 }
 
 void ASBuildingClassCastle::initBuilding() {
+
+}
+
+void ASBuildingClassCastle::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataCastle BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
 
 }

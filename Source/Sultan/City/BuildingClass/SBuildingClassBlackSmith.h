@@ -6,6 +6,15 @@
 #include "SCityBuilding.h"
 #include "SBuildingClassBlackSmith.generated.h"
 
+
+
+USTRUCT() struct FBuildingLvlDataBlackSmith : public FBuildingLvlData {
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere) int32 forgeSpeed;
+		UPROPERTY(EditAnywhere) int32 steelReduce;
+};
+
+
 /**
  * 
  */
@@ -16,17 +25,18 @@ class SULTAN_API ASBuildingClassBlackSmith : public ASCityBuilding
 public:
 
 	static FString IL_BuildingTitle;
+	static TMap<int32, FBuildingLvlDataBlackSmith> LvlData;
 	ASBuildingClassBlackSmith();
 
 	/*
 		Starting Btn ist For Building
 	*/
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompDetail;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompUpgrade;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompFroge;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompStorage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) USBuildingActionBtnsComp* BtnCompArtifacts;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompDetail;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompUpgrade;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompFroge;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompStorage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UWidgetComponent* BtnCompArtifacts;
 
 	/*
 		Btn Function  Building List
@@ -46,4 +56,6 @@ public:
 	void setBuildingActionBtnList() override;
 	void initBuilding() override;
 	void bindBtnActionFunction();
+	void setOperatingProgressBar();
+	static void getLvlData(TSharedPtr<FJsonObject> JsonValue);
 };

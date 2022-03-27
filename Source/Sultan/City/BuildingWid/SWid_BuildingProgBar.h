@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Components/ProgressBar.h"
+#include "Components/TextBlock.h"
+#include "Components/Border.h"
 #include "Blueprint/UserWidget.h"
 #include "SWid_BuildingProgBar.generated.h"
 
@@ -17,4 +19,12 @@ class SULTAN_API USWid_BuildingProgBar : public UUserWidget
 public:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
     UProgressBar* ProgBar;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UTextBlock* OperationTitle;
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UTextBlock* RemainingTime;
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UBorder* OperationIcon;
+
 };

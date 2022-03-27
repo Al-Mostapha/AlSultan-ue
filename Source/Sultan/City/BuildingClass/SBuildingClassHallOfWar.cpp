@@ -4,16 +4,17 @@
 #include "SBuildingClassHallOfWar.h"
 
 FString ASBuildingClassHallOfWar::IL_BuildingTitle = "buildDes_name_122";
+TMap<int32, FBuildingLvlDataHallOfWar> ASBuildingClassHallOfWar::LvlData;
 
 ASBuildingClassHallOfWar::ASBuildingClassHallOfWar() {
 
 	Sprite->OnClicked.AddUniqueDynamic(this, &ASBuildingClassHallOfWar::OnClicked);
 
-	BtnCompCounterAttack = BtnListComp.Add(EBuildingBtnAction::BBA_COUNTER_SYS, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompCounterAttack")));
-	BtnCompMedalExchange = BtnListComp.Add(EBuildingBtnAction::BBA_MILITARY_POINT, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompMedalExchange")));
-	BtnCompAlncWar       = BtnListComp.Add(EBuildingBtnAction::BBA_ALLIANCEBATTLE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompAlncWar")));
-	BtnCompUpgrade       = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompUpgrade")));
-	BtnCompDetail        = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<USBuildingActionBtnsComp>(TEXT("BtnCompDetail")));
+	BtnCompCounterAttack = BtnListComp.Add(EBuildingBtnAction::BBA_COUNTER_SYS, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompCounterAttack")));
+	BtnCompMedalExchange = BtnListComp.Add(EBuildingBtnAction::BBA_MILITARY_POINT, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompMedalExchange")));
+	BtnCompAlncWar       = BtnListComp.Add(EBuildingBtnAction::BBA_ALLIANCEBATTLE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompAlncWar")));
+	BtnCompUpgrade       = BtnListComp.Add(EBuildingBtnAction::BBA_UPGRADE, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompUpgrade")));
+	BtnCompDetail        = BtnListComp.Add(EBuildingBtnAction::BBA_DETAIL, CreateDefaultSubobject<UWidgetComponent>(TEXT("BtnCompDetail")));
 
 	BtnCompDetail        ->SetupAttachment(RootComponent);
 	BtnCompUpgrade       ->SetupAttachment(RootComponent);
@@ -101,5 +102,21 @@ void ASBuildingClassHallOfWar::setBuildingActionBtnList() {
 }
 
 void ASBuildingClassHallOfWar::initBuilding() {
+
+}
+
+void ASBuildingClassHallOfWar::getLvlData(TSharedPtr<FJsonObject> JsonValue) {
+
+	for (auto& T : JsonValue->Values) {
+
+		int32 buildingLvl = FCString::Atoi(*T.Key);
+		if (!T.Value || T.Value->IsNull())
+			continue;
+
+		FBuildingLvlDataHallOfWar BuildingLvlData;
+
+		FJsonObjectConverter::JsonObjectToUStruct(T.Value->AsObject().ToSharedRef(), &BuildingLvlData);
+		LvlData.Add(buildingLvl, BuildingLvlData);
+	}
 
 }
